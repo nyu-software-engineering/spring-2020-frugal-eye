@@ -1,6 +1,6 @@
-## Sprouts
+# Sprouts
 
-# Story behind Sprouts -copied from proposal
+## Story behind Sprouts -copied from proposal
 
 Growing up as a kid, one of the things my parents used to always say to me when I asked to eat out was "we have food at home" -- somehow they could always find a way to whip up a meal out of whatever leftover ingredients we had in our kitchen. My project proposal is to create a web system in the form of a website for people like me who don't have this skill. Users will be able to input whatever ingredients they have readily available and the goal of the system is to output recipes they can make with the food they have at home.
 
