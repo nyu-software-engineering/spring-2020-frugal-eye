@@ -9,5 +9,5 @@ I would like the website to be tailored towards different types of cuisines to a
 ### How to contribute to the project:
 https://github.com/nyu-software-engineering/spring-2020-frugal-eye/blob/master/CONTRIBUTING.md
 
-## Link to Invision Prototype
+### Link to Invision Prototype
 https://projects.invisionapp.com/d/main#/projects/prototypes/19479102
