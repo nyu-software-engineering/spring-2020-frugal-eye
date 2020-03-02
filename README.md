@@ -6,8 +6,11 @@ Growing up as a kid, one of the things my parents used to always say to me when 
 
 I would like the [application] to be tailored towards different types of cuisines to address diversified needs, as this kind of website does not yet exist for non-American food. Another way to make this more unique than existing programs is to allow users to also input how much time they have to make a meal, or how many servings they want to make. This system would be geared towards people who want to save money by eating at home and people who want to learn how to cook new dishes. Gathering recipes would probably be the first step in this project, so a solution I thought would be feasible for a group project would be to create a web crawler to collect recipes from popular food websites.
 
-### How to contribute to the project:
+### How to contribute to the project
 https://github.com/nyu-software-engineering/spring-2020-frugal-eye/blob/master/CONTRIBUTING.md
 
 ### Link to Invision Prototype
 https://projects.invisionapp.com/d/main#/projects/prototypes/19479102
+
+#### Relevant Reading
+[Downfall of a major mealkit service provider](https://pitchbook.com/news/articles/recipe-for-disaster-the-meteoric-rise-and-ongoing-demise-of-blue-apron)
