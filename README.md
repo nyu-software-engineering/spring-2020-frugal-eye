@@ -13,4 +13,5 @@ https://github.com/nyu-software-engineering/spring-2020-frugal-eye/blob/master/C
 https://projects.invisionapp.com/d/main#/projects/prototypes/19479102
 
 #### Relevant Reading
-[Downfall of a major mealkit service provider](https://pitchbook.com/news/articles/recipe-for-disaster-the-meteoric-rise-and-ongoing-demise-of-blue-apron)    While the mealkit service sector may seem similar to the application we plan to create, it is important to remember that we only plan on providing recipes based on the ingredients users have, not recipes to meals the users will create with the ingrediants that are also provided. 
+[Downfall of a major mealkit service provider](https://pitchbook.com/news/articles/recipe-for-disaster-the-meteoric-rise-and-ongoing-demise-of-blue-apron)    
+While the mealkit service sector may seem similar to the application we plan to create, it is important to remember that we only plan on providing recipes based on the ingredients users have, not recipes to meals the users will create with the ingrediants that are also provided. 
