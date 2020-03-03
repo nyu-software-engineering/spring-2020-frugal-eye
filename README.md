@@ -10,6 +10,7 @@ We plan to create an application that will allow users to input the current ingr
 
 ### Link to Invision Prototype
 https://invis.io/NDW89AUW5U3
+https://projects.invisionapp.com/d/main#/projects/prototypes/19479102
 
 ## How to contribute to the project
 https://github.com/nyu-software-engineering/spring-2020-frugal-eye/blob/master/CONTRIBUTING.md
