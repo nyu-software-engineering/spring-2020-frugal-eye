@@ -9,7 +9,7 @@ I would like the [application] to be tailored towards different types of cuisine
 We plan to create an application that will allow users to input the current ingredients they have available and receive a list of recipes they could create with the ingredients they have available. They can then save those recipe and the recipe will be added to their account for reuse. Each recipe will come with the name of the dish, a photo of the dish, list of ingredients and instructions for cooking. 
 
 ### Link to Invision Prototype
-[Prototype](https://invis.io/NDW89AUW5U3)
+[Prototype](https://projects.invisionapp.com/share/NDW89AUW5U3#/screens/407506295)
 
 ## How to contribute to the project
 [Contributing MD](https://github.com/nyu-software-engineering/spring-2020-frugal-eye/blob/master/CONTRIBUTING.md)
