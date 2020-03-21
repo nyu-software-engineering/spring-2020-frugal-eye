@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
-import Register from './Register';
-class Login extends Component {
+import './register.css';
+class Register extends Component {
 	constructor(props) {
     super(props);
     this.state = {
     	username: '',
     	password: '',
-    	showRegister: false};
+    };
 
     this.handleChangeUser = this.handleChangeUser.bind(this);
     this.handleChangePass = this.handleChangePass.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.registerForm = this.registerForm.bind(this);
   }
 
   handleChangeUser(event) {
@@ -30,17 +29,14 @@ class Login extends Component {
     	"password": this.state.password
     }
     console.log(payload)
-  }
-
-  registerForm() {
-  	this.setState({showRegister: !this.state.showRegister});
+    {this.props.closeWindow()}
   }
 
   render() {
     return (
-    	<div>
+    	<div className='register'>
       	<form onSubmit={this.handleSubmit}>
-      	<p>Sprouts</p>
+      	<p>Register</p>
         	<label>
          	Username:
           		<input type="text" value={this.state.username} onChange={this.handleChangeUser} />
@@ -51,17 +47,9 @@ class Login extends Component {
           		<input type="password" value={this.state.password} onChange={this.handleChangePass} />
         	</label>
         	<input type="submit" value="Go!" />
-          <p></p>
-          <button onClick={this.registerForm.bind(this)}>Register</button>  
-          {this.state.showRegister ?  
-          <Register
-            closeWindow={this.registerForm.bind(this)}  
-          />  
-          : null  
-          }
       	</form>
       	</div>
     );
   }
 }
-export default Login;
+export default Register;
