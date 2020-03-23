@@ -24,7 +24,7 @@ class Register extends Component {
   handleSubmit(event) {
     alert('Username: ' + this.state.username + ', password: ' + this.state.password);
     event.preventDefault();
-    var payload = {
+    let payload = {
     	"username": this.state.username,
     	"password": this.state.password
     }

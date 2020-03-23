@@ -25,7 +25,7 @@ class Login extends Component {
   handleSubmit(event) {
     alert('Username: ' + this.state.username + ', password: ' + this.state.password);
     event.preventDefault();
-    var payload = {
+    let payload = {
     	"username": this.state.username,
     	"password": this.state.password
     }
@@ -51,6 +51,7 @@ class Login extends Component {
           		<input type="password" value={this.state.password} onChange={this.handleChangePass} />
         	</label>
         	<input type="submit" value="Go!" />
+          </form>
           <p></p>
           <button onClick={this.registerForm.bind(this)}>Register</button>  
           {this.state.showRegister ?  
@@ -59,7 +60,6 @@ class Login extends Component {
           />  
           : null  
           }
-      	</form>
       	</div>
     );
   }
