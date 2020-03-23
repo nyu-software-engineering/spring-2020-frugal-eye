@@ -1,67 +1,44 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import Register from './Register';
-class Login extends Component {
-	constructor(props) {
-    super(props);
-    this.state = {
-    	username: '',
-    	password: '',
-    	showRegister: false};
+const Login = (props) => {
 
-    this.handleChangeUser = this.handleChangeUser.bind(this);
-    this.handleChangePass = this.handleChangePass.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.registerForm = this.registerForm.bind(this);
-  }
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showRegister, setShowRegister] = useState(false);
 
-  handleChangeUser(event) {
-    this.setState({username: event.target.value});
-  }
-
-  handleChangePass(event) {
-    this.setState({password: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('Username: ' + this.state.username + ', password: ' + this.state.password);
+  function handleSubmit(event) {
+    alert('Username: ' + username + ', password: ' + password);
     event.preventDefault();
     let payload = {
-    	"username": this.state.username,
-    	"password": this.state.password
+    	"username": username,
+    	"password": password
     }
-    console.log(payload)
   }
 
-  registerForm() {
-  	this.setState({showRegister: !this.state.showRegister});
-  }
-
-  render() {
-    return (
-    	<div>
-      	<form onSubmit={this.handleSubmit}>
-      	<p>Sprouts</p>
-        	<label>
-         	Username:
-          		<input type="text" value={this.state.username} onChange={this.handleChangeUser} />
-        	</label>
-        	<p></p>
-        	<label>
-         	Password:
-          		<input type="password" value={this.state.password} onChange={this.handleChangePass} />
-        	</label>
-        	<input type="submit" value="Go!" />
-          </form>
-          <p></p>
-          <button onClick={this.registerForm.bind(this)}>Register</button>  
-          {this.state.showRegister ?  
-          <Register
-            closeWindow={this.registerForm.bind(this)}  
-          />  
-          : null  
-          }
-      	</div>
-    );
-  }
+  return (
+  	<div>
+    	<form onSubmit={handleSubmit}>
+    	<p>Sprouts</p>
+      	<label>
+       	Username:
+        		<input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+      	</label>
+      	<p></p>
+      	<label>
+       	Password:
+        		<input type="password" value={password} onChange={f => setPassword(f.target.value)} />
+      	</label>
+      	<input type="submit" value="Go!" />
+        </form>
+        <p></p>
+        <button onClick={g => setShowRegister(!showRegister)}>Register</button>  
+        {showRegister ?  
+        <Register
+          closeWindow={t => setShowRegister(!showRegister)}  
+        />  
+        : null  
+        }
+    	</div>
+  );
 }
 export default Login;
