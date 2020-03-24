@@ -1,10 +1,9 @@
-import React, { setState, useState } from 'react';
-import recipe from '/recipe';
+import React/*{, setState, useState }*/ from 'react';
+import './recipe.css';
 
-const Recipes = (props) => {
-	const [count, setCount] = useState(0);
-	console.log("Test")
-	function favorite(event){
+const Recipes = () => {
+	//const [count, setCount] = useState(0);
+	/*function favorite(event){
 
 		let newItem = {
 			name: props.name,
@@ -20,7 +19,7 @@ const Recipes = (props) => {
 		alert("Added To Favorites");
 		event.preventDefault();
 	}
-
+*/
 	return(
 <div className="Recipes">
 	<h1>Hello</h1>
@@ -29,4 +28,4 @@ const Recipes = (props) => {
 	);
 }
 
-export default recipe;
+export default Recipes;
