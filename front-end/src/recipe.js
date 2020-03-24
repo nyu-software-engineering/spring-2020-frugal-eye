@@ -1,10 +1,9 @@
 import React, { setState, useState } from 'react';
-import Recipe from '/recipe';
-
-const [count, setCount] = useState(0);
+import recipe from '/recipe';
 
 const Recipes(props){
-
+	const [count, setCount] = useState(0);
+	print("test")
 	function favorite(){
 
 		let newItem = {
@@ -24,10 +23,8 @@ const Recipes(props){
 
 	return(
 <div className="Recipes">
-	<h1>{props.name}</h1>
-	{{#each props.ingredients}}
-	<p>{{this}}</p>
-	{{/each}}
+	<h1>Hello</h1>
+	<button>Add to Favorites</button>
 </div>
 	):
 }
