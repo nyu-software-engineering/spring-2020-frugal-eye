@@ -1,10 +1,10 @@
 import React, { setState, useState } from 'react';
 import recipe from '/recipe';
 
-const Recipes(props){
+const Recipes = (props) => {
 	const [count, setCount] = useState(0);
-	print("test")
-	function favorite(){
+	console.log("Test")
+	function favorite(event){
 
 		let newItem = {
 			name: props.name,
@@ -13,7 +13,7 @@ const Recipes(props){
 
 		this.setState((prevState) => {
 			return {
-				prevState.favorites.concat(recipe)
+
 			};
 		});
 
@@ -26,7 +26,7 @@ const Recipes(props){
 	<h1>Hello</h1>
 	<button>Add to Favorites</button>
 </div>
-	):
+	);
 }
 
-export default Recipe;
+export default recipe;
