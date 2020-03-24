@@ -1,96 +1,63 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import Popup from './components/Popup';
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: '',
-            showPopupAct: false,
-            showPopupDel: false
-        };
-        this.handleChangeUser = this.handleChangeUser.bind(this);
-        this.handleChangePass = this.handleChangePass.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.deleteRecipes = this.deleteRecipes.bind(this);
-    }
-    handleChangeUser(event) {
-        this.setState({username: event.target.value});
-    }
+const Settings = (props) => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPopupAct, setShowPopupAct] = useState(false);
+    const [showPopupDel, setShowPopupDel] = useState(false);
 
-    handleChangePass(event) {
-        this.setState({password: event.target.value});
-    }
-
-    handleSubmit(event) {
-        alert('Username: ' + this.state.username + ', password: ' + this.state.password);
+    function handleSubmit(event) {
+        alert('Username: ' + username + ', password: ' + password);
         event.preventDefault();
         var payload = {
-            "username": this.state.username,
-            "password": this.state.password
+            "username": username,
+            "password": password
         }
         console.log(payload)
-        this.setState({showPopupAct: true});
+        setShowPopupAct(true)
+        console.log(showPopupAct)
     }
 
-    deleteRecipes(event) {
-        this.setState({showPopupDel: true});
-    }
-
-    closePopupAct() {  
-        this.setState({  
-             showPopupAct: false 
-        });  
-    }
-
-    closePopupDel() {  
-        this.setState({  
-             showPopupDel: false 
-        });  
-    }
-
-    render() {
-        return (
-          <div>
-          <p>Settings</p>
-          <form onSubmit={this.handleSubmit}>
-            <p>Change Login Information</p>
-                <label>
-                Username:
-                    <input type="text" value={this.state.username} onChange={this.handleChangeUser} />
-                </label>
-                <p></p>
-                <label>
-                Password:
-                    <input type="password" value={this.state.password} onChange={this.handleChangePass} />
-                </label>
-                <p></p>
-                <input type="submit" value="Change" />
-            </form>
-            {this.state.showPopupAct ?
-            <Popup  
-                text='Account information has been changed' 
-                closePopup={this.closePopupAct.bind(this)}  
-            />
-            :
-            null
-            }  
-            <button onClick={this.deleteRecipes}>Clear Favorites</button>
-            {this.state.showPopupDel ?
-            <Popup  
-                text='Favorite recipes have been cleared' 
-                closePopup={this.closePopupDel.bind(this)}  
-            />
-            :
-            null
-            }
+    return (
+      <div>
+      <p>Settings</p>
+      <form onSubmit={handleSubmit}>
+        <p>Change Login Information</p>
+            <label>
+            Username:
+                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+            </label>
             <p></p>
-            <button onClick={event => window.location.href='/Login'}>Log Out</button>
+            <label>
+            Password:
+                <input type="password" value={password} onChange={f => setPassword(f.target.value)} />
+            </label>
+            <p></p>
+            <input type="submit" value="Change" />
+        </form>
+        {showPopupAct ?
+        <Popup  
+            text='Account information has been changed' 
+            closePopup={t => setShowPopupAct(!showPopupAct)}  
+        />
+        :
+        null
+        }  
+        <button onClick={h => setShowPopupDel(!showPopupDel)}>Clear Favorites</button>
+        {showPopupDel ?
+        <Popup  
+            text='Favorite recipes have been cleared' 
+            closePopup={g => setShowPopupDel(!showPopupDel)}  
+        />
+        :
+        null
+        }
+        <p></p>
+        <button onClick={event => window.location.href='/'}>Log Out</button>
 
-          </div>
-        );
-    }
+      </div>
+    );
 
 }
-export default App;
+export default Settings;
   
