@@ -28,6 +28,8 @@ const Recipes = () => {
 		<button onclick="favorited()">Add to Favorites</button>
 		<h3>Recipe Name</h3>
 		<h5>Ingredients:</h5>
+		<p>Foo</p>
+		<p>Bar</p>
 	</div>
 </div>
 	);

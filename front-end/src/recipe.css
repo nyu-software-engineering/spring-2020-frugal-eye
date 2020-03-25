@@ -8,5 +8,6 @@
 	width: 200px;
 	border: 2px solid grey;
 	padding: 20px;
-	background: grey;
+	background: rgb(184,184,184);
+	line-height:5px;
 }
