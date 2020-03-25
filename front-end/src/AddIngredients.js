@@ -10,9 +10,7 @@ const AddIngredients = (props) =>{
         setIngredientsList(ingredientsList.concat(ingredient));
         setIngredient("");
         console.log(ingredientsList);
-        
     }
-
     return (
         <div>
             <h1>What's in your fridge?</h1>
