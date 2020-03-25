@@ -2,6 +2,7 @@ import React/*{, setState, useState }*/ from 'react';
 import './recipe.css';
 
 const Recipes = () => {
+
 	//const [count, setCount] = useState(0);
 	/*function favorite(event){
 
@@ -22,8 +23,12 @@ const Recipes = () => {
 */
 	return(
 <div className="Recipes">
-	<h1>Hello</h1>
-	<button>Add to Favorites</button>
+	<h2>Recipe List</h2>
+	<div className="box">
+		<button onclick="favorited()">Add to Favorites</button>
+		<h3>Recipe Name</h3>
+		<h5>Ingredients:</h5>
+	</div>
 </div>
 	);
 }
