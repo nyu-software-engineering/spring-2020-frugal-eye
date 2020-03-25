@@ -7,9 +7,10 @@ const AddIngredients = (props) =>{
 
     function handleSubmit(event) {
         event.preventDefault();
-        alert("You've added " + ingredient);
         setIngredientsList(ingredientsList.concat(ingredient));
+        setIngredient("");
         console.log(ingredientsList);
+        
     }
 
     return (
@@ -24,7 +25,7 @@ const AddIngredients = (props) =>{
             </div>
             <form onSubmit={handleSubmit}>
                 <br></br>Input your ingredients:<br></br>
-                <input type="text" value={ingredient} onChange={e => setIngredient(e.target.value)}/>
+                <input type="text" name="ingredientInput" value={ingredient} onChange={e => setIngredient(e.target.value)}/>
                 <br></br><input type="submit" value="Add"/>
                 
             </form>
