@@ -2,12 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Login from './Login'
+import Settings from './Settings'
 
 const App = (props) => {
   return (
     <div className="container">
         <Router>
             <Switch>
+
+                <Route path="/settings">
+                    <Settings />
+                </Route>
+
                 <Route path="/">
                     <Login />
                 </Route>
