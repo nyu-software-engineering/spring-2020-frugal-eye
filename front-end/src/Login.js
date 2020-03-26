@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import Register from './Register';
+import Popup from './components/Popup';
 const Login = (props) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showRegister, setShowRegister] = useState(false);
+  const [matchPopup, setMatchPopup] = useState(false);
+  const [existPopup, setExistPopup] = useState(false);
 
   function handleSubmit(event) {
-    alert('Username: ' + username + ', password: ' + password);
     event.preventDefault();
     let payload = {
     	"username": username,
     	"password": password
+    }
+    if(username === "goodUser"){
+      window.location.href='/Home'
+    }
+    else if(username === "badUser"){
+      setMatchPopup(true)
+    }
+    else{
+      setExistPopup(true)
     }
   }
 
@@ -37,6 +48,22 @@ const Login = (props) => {
           closeWindow={t => setShowRegister(!showRegister)}  
         />  
         : null  
+        }
+        {matchPopup ?
+        <Popup  
+            text='Username and password do not match' 
+            closePopup={h => setMatchPopup(!matchPopup)}  
+        />
+        :
+        null
+        }
+        {existPopup ?
+        <Popup  
+            text='Username does not exist' 
+            closePopup={i => setExistPopup(!existPopup)}  
+        />
+        :
+        null
         }
     	</div>
   );
