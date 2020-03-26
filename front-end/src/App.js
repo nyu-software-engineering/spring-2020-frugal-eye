@@ -35,12 +35,12 @@ const App = (props) => {
                     <FavoriteList />
                 </Route>
 
-                <Route path="/">
-                    <Login />
-                </Route>
-
                 <Route path="/recipe">
                     <RecipePage />
+                </Route>
+
+                <Route path="/">
+                    <Login />
                 </Route>
 
             </Switch>

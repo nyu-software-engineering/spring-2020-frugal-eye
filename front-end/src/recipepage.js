@@ -8,9 +8,9 @@ const RecipePage = (props) => {
   	const data = require("./Sampledata");
 
   	const favorited = () => {
-  		name = data.index(props.recipeName)
-  		if(data[name].favorite == true){
-  			data[name].favorite = false;
+  		let rName = data.index(props.recipeName)
+  		if(data[rName].favorite == true){
+  			data[rName].favorite = false;
   		}
   		else{
   			data[name].favorite = true;
@@ -31,3 +31,4 @@ const RecipePage = (props) => {
 		</div>
 	);
 }
+export default RecipePage;
