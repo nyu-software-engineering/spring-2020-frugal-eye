@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Popup from './components/Popup';
+import './standard.css'
 const Settings = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -7,7 +8,6 @@ const Settings = (props) => {
     const [showPopupDel, setShowPopupDel] = useState(false);
 
     function handleSubmit(event) {
-        alert('Username: ' + username + ', password: ' + password);
         event.preventDefault();
         var payload = {
             "username": username,
@@ -20,21 +20,20 @@ const Settings = (props) => {
 
     return (
       <div>
-      <p>Settings</p>
+      <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
         <p>Change Login Information</p>
             <label>
-            Username:
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                <input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
             </label>
             <p></p>
             <label>
-            Password:
-                <input type="password" value={password} onChange={f => setPassword(f.target.value)} />
+                <input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
             </label>
             <p></p>
-            <input type="submit" value="Change" />
+            <input className="standard_button" type="submit" value="Change" />
         </form>
+        <p></p>
         {showPopupAct ?
         <Popup  
             text='Account information has been changed' 
@@ -43,7 +42,7 @@ const Settings = (props) => {
         :
         null
         }  
-        <button onClick={h => setShowPopupDel(!showPopupDel)}>Clear Favorites</button>
+        <button className="standard_button" onClick={h => setShowPopupDel(!showPopupDel)}>Clear Favorites</button>
         {showPopupDel ?
         <Popup  
             text='Favorite recipes have been cleared' 
@@ -53,7 +52,7 @@ const Settings = (props) => {
         null
         }
         <p></p>
-        <button onClick={event => window.location.href='/'}>Log Out</button>
+        <button className="standard_button" onClick={event => window.location.href='/'}>Log Out</button>
 
       </div>
     );

@@ -9,6 +9,44 @@ ul {
 
 .back-button {
     float: left;
+    background-color: white;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    text-indent: 0;
+    border: none;
+    display:inline-block;
+    color: black;
+    height: 50px;
+    line-height: 50px;
+    width: 140px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.ing_input {
+    border: white;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.ing_button {
+    background-color: white;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    text-indent: 0;
+    border: none;
+    display:inline-block;
+    color: black;
+    height: 50px;
+    line-height: 50px;
+    width: 70px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .display-ingredients {

@@ -28,7 +28,6 @@ const RecipeList = (props) => {
           </p>
         )
       })}
-
     </div>
   )
 }

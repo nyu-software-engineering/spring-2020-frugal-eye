@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddIngredients.css';
+import './standard.css';
 
 const AddIngredients = (props) =>{
     const [ingredient, setIngredient] = useState("");
@@ -38,11 +39,12 @@ const AddIngredients = (props) =>{
             </div>
             <form onSubmit={handleSubmit}>
                 <br></br>Input your ingredients:<br></br>
-                <input type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
-                <input type="submit" value="Add"/>
+                <p></p>
+                <input className="ing_input" type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
+                <input className="ing_button" type="submit" value="Add"/>
             </form>
             <br></br>
-            <button onClick={event => window.location.href='/recipelist'}>Let's view some recipes!!</button>
+            <button className="standard_button" onClick={event => window.location.href='/recipelist'}>Let's view some recipes!!</button>
         </div>
     );
 }
