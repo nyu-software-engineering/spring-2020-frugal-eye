@@ -11,19 +11,33 @@ const AddIngredients = (props) =>{
         setIngredient("");
         console.log(ingredientsList);
     }
+    function handleChange(event) {
+        setIngredient(event.target.value)
+    }
+    function handleDelete(event) {
+        event.preventDefault();
+        let item = event.target.id;
+        setIngredientsList(ingredientsList.filter((e) => (e !== item)));
+    }
+
     return (
         <div>
             <h1>What's in your fridge?</h1>
             <div className="display-ingredients">
                 <ul>
                     {ingredientsList.map(ingredients => (
-                        <li key={ingredients}>{ingredients}</li>
-                    ))}
+                        <div>
+                            <li key={ingredients}>
+                                {ingredients}
+                                <button className="features" id={ingredients} onClick={handleDelete}>delete</button>
+                            </li>
+                        </div>
+                    ))}     
                 </ul>
             </div>
             <form onSubmit={handleSubmit}>
                 <br></br>Input your ingredients:<br></br>
-                <input type="text" name="ingredientInput" value={ingredient} onChange={e => setIngredient(e.target.value)}/>
+                <input type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
                 <br></br><input type="submit" value="Add"/>
                 
             </form>
