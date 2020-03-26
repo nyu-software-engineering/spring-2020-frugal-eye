@@ -6,13 +6,12 @@ const RecipePage = (props) => {
     const [matchPopup, setMatchPopup] = useState(true);
     const data = require("./Sampledata");
     let {name} = useParams();
-    function favorited(){
-        if(data[{name}].favorite == true){
-            data[{name}].favorite = false;
-        }
-        else{
-            data[{name}].favorite = true;
-        }
+
+    let id = parseInt(useParams());
+    //let {recipeName} = data[id].name;
+
+   function favorited(){
+alert(data[1])
     }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page
     //name = props.recipeName
@@ -24,7 +23,7 @@ const RecipePage = (props) => {
         <br></br>
         <div className = "recipe">
         <h3>{name}</h3>
-        <button onClick="favorited()">Add to Favorites</button>
+        <button onClick={null}>Add to Favorites</button>
 					<p>Cut the Foo</p>
 					<p>Break the Baz</p>
 					<p>Let the Bar raise</p>

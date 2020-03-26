@@ -6,7 +6,6 @@ import './register.css'
 const RecipeList = (props) => {
   const [matchPopup, setMatchPopup] = useState(true);
   const data = require("./Sampledata");
-  const key = ""
   return (
     //retrieve search params from props
     //.find({ingredients = props.ingredients}, ingredients)
@@ -19,7 +18,7 @@ const RecipeList = (props) => {
         closePopup={(h) => setMatchPopup(!matchPopup)} /> : null}
       {Object.keys(data).map((key, index) => {
         return(
-          <p className = 'recipe' onClick={event => window.location.href="/recipe/"+data[key].name}>
+          <p className = 'recipe' onClick={event => window.location.href="/recipe/"+index}>
            {data[key].name}
           <img src = {require("" + data[key].image)} alt = 'image'/>
           </p>
