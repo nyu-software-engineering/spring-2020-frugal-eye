@@ -3,7 +3,7 @@ import './RecipeList.css'
 import Popup from './components/Popup';
 import './register.css'
 
-const RecipeList = (props) => {
+const FavoriteList = (props) => {
 
   const [matchPopup, setMatchPopup] = useState(true);
   const data = require("./Sampledata");
@@ -20,16 +20,18 @@ const RecipeList = (props) => {
         text='Hi! Looks like this is your first time viewing recipes. The ones in green are those that you have all ingredients for, yellow are those you have some for.' 
         closePopup={(h) => setMatchPopup(!matchPopup)} /> : null}
       {Object.keys(data).map((key, index) => {
-        return(
-          <p className = 'recipe' onClick={null}>
-          {data[key].name}
-          <img src = {require("" + data[key].image)} alt = 'image'/>
-          </p>
-        )
+        if(data[key].favorite){
+          return(
+            <p className = 'recipe' onClick={null}>
+            {data[key].name}
+            <img src = {require("" + data[key].image)} alt = 'image'/>
+            </p>
+          )
+        }else return "";
       })}
 
     </div>
   )
 }
 
-export default RecipeList;
+export default FavoriteList;
