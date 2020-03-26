@@ -5,7 +5,6 @@ const Register = (props) => {
   const [password, setPassword] = useState("");
 
   function handleSubmit(event) {
-    alert('Username: ' + this.state.username + ', password: ' + this.state.password);
     event.preventDefault();
     let payload = {
     	"username": username,
