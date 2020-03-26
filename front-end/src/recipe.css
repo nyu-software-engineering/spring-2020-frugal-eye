@@ -1,5 +1,5 @@
 body{
-	background: #FF9933;
+	background: rgb(75, 139, 59);
 }
 
 .Recipes {
@@ -16,6 +16,6 @@ body{
 	width: 200px;
 	border: 2px solid grey;
 	padding: 20px;
-	background: rgb(184,184,184);
+	background: rgb(75, 180, 59);
 	line-height:5px;
 }
