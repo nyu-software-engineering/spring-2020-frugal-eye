@@ -32,7 +32,7 @@ const App = (props) => {
                 </Route>
 
                 <Route path = "/favoritelist">
-                    <FavoriteList />
+                    <recipelist />
                 </Route>
 
                 <Route path="/recipe">

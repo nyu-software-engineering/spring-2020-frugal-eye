@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Register from './Register';
 import Popup from './components/Popup';
+import './standard.css'
 const Login = (props) => {
 
   const [username, setUsername] = useState("");
@@ -29,20 +30,19 @@ const Login = (props) => {
   return (
   	<div>
     	<form onSubmit={handleSubmit}>
-    	<p>Sprouts</p>
-      	<label>
-       	Username:
-        		<input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+    	<h1>Sprouts</h1>
+      	<label> 
+        		<input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
       	</label>
       	<p></p>
-      	<label>
-       	Password:
-        		<input type="password" value={password} onChange={f => setPassword(f.target.value)} />
+      	<label> 
+        		<input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
       	</label>
-      	<input type="submit" value="Go!" />
+        <p></p>
+      	<input className="standard_button" type="submit" value="Go!" />
         </form>
         <p></p>
-        <button onClick={g => setShowRegister(!showRegister)}>Register</button>  
+        <button className="standard_button" onClick={g => setShowRegister(!showRegister)}>Register</button>  
         {showRegister ?  
         <Register
           closeWindow={t => setShowRegister(!showRegister)}  

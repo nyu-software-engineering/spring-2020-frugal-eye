@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './register.css';
+import './standard.css';
 const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,17 +18,16 @@ const Register = (props) => {
   return (
   	<div className='register'>
     	<form onSubmit={handleSubmit}>
-    	<p>Register</p>
+    	<h2>Register</h2>
       	<label>
-       	Username:
-        		<input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        		<input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
       	</label>
-      	<p></p>
+      	<br></br><br></br>
       	<label>
-       	Password:
-        		<input type="password" value={password} onChange={f => setPassword(f.target.value)} />
+        		<input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
       	</label>
-      	<input type="submit" value="Go!" />
+        <p></p>
+      	<input className="standard_button" type="submit" value="Go!" />
     	</form>
     	</div>
   );
