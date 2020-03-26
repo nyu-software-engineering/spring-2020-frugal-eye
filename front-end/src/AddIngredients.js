@@ -19,17 +19,16 @@ const AddIngredients = (props) =>{
         let item = event.target.id;
         setIngredientsList(ingredientsList.filter((e) => (e !== item)));
     }
-
     return (
         <div>
             <h1>What's in your fridge?</h1>
             <div className="display-ingredients">
                 <ul>
                     {ingredientsList.map(ingredients => (
-                        <div>
+                        <div className="each-ingredient">
                             <li key={ingredients}>
                                 {ingredients}
-                                <button className="features" id={ingredients} onClick={handleDelete}>delete</button>
+                                <div className="features" ><button id={ingredients} onClick={handleDelete}>del</button></div>
                             </li>
                         </div>
                     ))}     
