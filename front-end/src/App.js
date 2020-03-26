@@ -32,12 +32,10 @@ const App = (props) => {
                 </Route>
 
                 <Route path = "/favoritelist">
-                    <recipelist />
+                    <FavoriteList />
                 </Route>
 
-                <Route path="/recipe">
-                    <RecipePage />
-                </Route>
+                <Route path="/recipe/:name" component={RecipePage}/>
 
                 <Route path="/">
                     <Login />
