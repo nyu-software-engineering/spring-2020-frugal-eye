@@ -2,11 +2,15 @@ import React from 'react';
 const Home = (props) => {
 
   return (
+
   	<div>
+  	  <br></br><br></br>
     	<button onClick={event => window.location.href='/add-ingredients'}>Input Ingredients</button>
-      <p></p>
-      <button onClick={event => window.location.href='/Favorites'}>View Favorites</button>
-      <p></p>
+      <br></br>
+      <br></br>
+      <button onClick={event => window.location.href='/recipelist'}>View Favorites</button>
+      <br></br>
+      <br></br>
       <button onClick={event => window.location.href='/Settings'}>Settings</button>
     </div>
   );

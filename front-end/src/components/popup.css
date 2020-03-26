@@ -1,7 +1,11 @@
+.back-button {
+    float: left;
+}
+
 .popup {
   display: flex;  
   position: fixed;  
-  width: 400px;  
+  width: 450px;  
   height: 200px;  
   top: 0;  
   left: 0;  

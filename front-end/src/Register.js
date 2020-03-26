@@ -17,12 +17,12 @@ const Register = (props) => {
   return (
   	<div className='register'>
     	<form onSubmit={handleSubmit}>
-    	<p>Register</p>
+    	<h2>Register</h2>
       	<label>
        	Username:
         		<input type="text" value={username} onChange={e => setUsername(e.target.value)} />
       	</label>
-      	<p></p>
+      	<br></br><br></br>
       	<label>
        	Password:
         		<input type="password" value={password} onChange={f => setPassword(f.target.value)} />

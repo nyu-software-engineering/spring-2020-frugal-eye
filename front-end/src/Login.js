@@ -29,19 +29,19 @@ const Login = (props) => {
   return (
   	<div>
     	<form onSubmit={handleSubmit}>
-    	<p>Sprouts</p>
+    	<h1>Sprouts</h1>
       	<label>
        	Username:
         		<input type="text" value={username} onChange={e => setUsername(e.target.value)} />
       	</label>
-      	<p></p>
+      	<br></br><br></br>
       	<label>
        	Password:
         		<input type="password" value={password} onChange={f => setPassword(f.target.value)} />
       	</label>
       	<input type="submit" value="Go!" />
         </form>
-        <p></p>
+        <br></br>
         <button onClick={g => setShowRegister(!showRegister)}>Register</button>  
         {showRegister ?  
         <Register

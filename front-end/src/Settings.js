@@ -20,29 +20,35 @@ const Settings = (props) => {
 
     return (
       <div>
-      <p>Settings</p>
+      <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+      <br></br>
+      <h2>Settings</h2>
       <form onSubmit={handleSubmit}>
-        <p>Change Login Information</p>
+        <h4>Change Login Information</h4>
             <label>
             Username:
                 <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
             </label>
-            <p></p>
+            <br></br>
+            <br></br>
             <label>
             Password:
                 <input type="password" value={password} onChange={f => setPassword(f.target.value)} />
             </label>
-            <p></p>
+            <br></br>
+            <br></br>
             <input type="submit" value="Change" />
         </form>
         {showPopupAct ?
         <Popup  
-            text='Account information has been changed' 
+            text='Account information has been changed'
+
             closePopup={t => setShowPopupAct(!showPopupAct)}  
         />
         :
         null
-        }  
+        }
+        <br></br>  
         <button onClick={h => setShowPopupDel(!showPopupDel)}>Clear Favorites</button>
         {showPopupDel ?
         <Popup  
@@ -52,7 +58,7 @@ const Settings = (props) => {
         :
         null
         }
-        <p></p>
+        <br></br><br></br>
         <button onClick={event => window.location.href='/'}>Log Out</button>
 
       </div>
