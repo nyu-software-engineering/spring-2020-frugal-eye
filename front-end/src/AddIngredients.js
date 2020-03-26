@@ -21,6 +21,8 @@ const AddIngredients = (props) =>{
     }
     return (
         <div>
+            <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+            <br></br>
             <h1>What's in your fridge?</h1>
             <div className="display-ingredients">
                 <ul>
@@ -28,7 +30,7 @@ const AddIngredients = (props) =>{
                         <div className="each-ingredient">
                             <li key={ingredients}>
                                 {ingredients}
-                                <div className="features" ><button id={ingredients} onClick={handleDelete}>del</button></div>
+                                <div className="features"><button id={ingredients} onClick={handleDelete}>del</button></div>
                             </li>
                         </div>
                     ))}     
@@ -38,7 +40,6 @@ const AddIngredients = (props) =>{
                 <br></br>Input your ingredients:<br></br>
                 <input type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
                 <br></br><input type="submit" value="Add"/>
-                
             </form>
         </div>
     );
