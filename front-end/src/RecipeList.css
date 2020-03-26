@@ -1,3 +1,7 @@
+body {
+	background: #BAEDBF
+}
+
 .flex-container{
 	display: flex;
 	flex-direction: column;
@@ -5,9 +9,15 @@
 	justify-content: center;
 }
 
-.recipe{
-	flex:auto;
-	border: 2px solid black;
+.recipe {
+	flex: auto;
+	margin: 0 auto;
+	text-align: center; 
+	width: 200px;
+	border-radius: 25px;
+	padding: 20px;
+	background: #7CE099;
+	line-height:5px;
 }
 
 img{
