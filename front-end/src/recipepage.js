@@ -13,7 +13,7 @@ const RecipePage = (props) => {
   			data[rName].favorite = false;
   		}
   		else{
-  			data[name].favorite = true;
+  			data[rName].favorite = true;
   		}
   	}
 
