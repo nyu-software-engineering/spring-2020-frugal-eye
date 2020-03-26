@@ -1,8 +1,16 @@
+body{
+	background: #FF9933;
+}
+
 .Recipes {
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	
 }
 
 .box {
+	flex: auto;
 	margin: 0 auto;
 	text-align: center; 
 	width: 200px;

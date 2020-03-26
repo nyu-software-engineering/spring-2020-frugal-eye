@@ -31,6 +31,8 @@ const Recipes = () => {
 		<p>Foo</p>
 		<p>Bar</p>
 	</div>
+
+	
 </div>
 	);
 }
