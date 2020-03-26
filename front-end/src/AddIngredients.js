@@ -39,8 +39,10 @@ const AddIngredients = (props) =>{
             <form onSubmit={handleSubmit}>
                 <br></br>Input your ingredients:<br></br>
                 <input type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
-                <br></br><input type="submit" value="Add"/>
+                <input type="submit" value="Add"/>
             </form>
+            <br></br>
+            <button onClick={event => window.location.href='/recipelist'}>Let's view some recipes!!</button>
         </div>
     );
 }
