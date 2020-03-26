@@ -9,6 +9,20 @@ body {
 .ingr-button {
 	float: right;
 	margin-top: -21px;
+	background-color: white;
+	border-top-left-radius: 28px;
+	border-top-right-radius: 28px;
+	border-bottom-right-radius: 28px;
+	border-bottom-left-radius: 28px;
+	text-indent: 0;
+	border: none;
+	display:inline-block;
+	color: black;
+	height: 50px;
+	line-height: 50px;
+	width: 140px;
+	text-decoration: none;
+	text-align: center;
 }
 
 .flex-container{

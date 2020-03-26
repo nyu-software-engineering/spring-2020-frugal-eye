@@ -44,7 +44,7 @@ const AddIngredients = (props) =>{
                 <input className="ing_button" type="submit" value="Add"/>
             </form>
             <br></br>
-            <button className="standard_button" onClick={event => window.location.href='/recipelist'}>Let's view some recipes!!</button>
+            <button className="rec_button" onClick={event => window.location.href='/recipelist'}>Let's view some recipes!!</button>
         </div>
     );
 }

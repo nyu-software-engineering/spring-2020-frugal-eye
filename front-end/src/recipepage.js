@@ -7,8 +7,9 @@ const RecipePage = (props) => {
 	const [matchPopup, setMatchPopup] = useState(true);
   	const data = require("./Sampledata");
 
-  	const favorited = () => {
+  	function favorited(){
   		let rName = data.index(props.recipeName)
+  		console.log("favorited")
   		if(data[rName].favorite == true){
   			data[rName].favorite = false;
   		}
@@ -18,16 +19,18 @@ const RecipePage = (props) => {
   	}
 
 	return(
-		<div className = "recipe">
-		<button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+		<div>
+		<button className="backb" onClick={event => window.location.href='/home'}>Back to home</button>
 		<br></br>
-		<button className="recipes-button" onClick={event => window.location.href='/home'}>Back to recipes</button>
+		<button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
 		<br></br>
-		<h3>props.recipeName</h3>
-		<button onClick="favorited()">Add to Favorites</button>
-			<p>Fooooooooo</p>
-			<p>Bazzzzzzzzzzzzz</p>
-			<p>Barrrrrrrrrrrrrrrr</p>
+			<div className = "steps">
+				<h3>props.recipeName</h3>
+				<button onClick="favorited()">Add to Favorites</button>
+					<p>Cut the Foo</p>
+					<p>Break the Baz</p>
+					<p>Let the Bar raise</p>
+			</div>
 		</div>
 	);
 }
