@@ -35,7 +35,7 @@ const App = (props) => {
                     <FavoriteList />
                 </Route>
 
-                <Route path="/recipe/:name" component={RecipePage}/>
+                <Route path="/recipe/:key" component={RecipePage}/>
 
                 <Route path="/">
                     <Login />

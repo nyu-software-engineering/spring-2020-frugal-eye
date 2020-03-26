@@ -18,7 +18,7 @@ const RecipeList = (props) => {
         closePopup={(h) => setMatchPopup(!matchPopup)} /> : null}
       {Object.keys(data).map((key, index) => {
         return(
-          <p className = 'recipe' onClick={event => window.location.href="/recipe/"+index}>
+          <p className = 'recipe' onClick={event => window.location.href="/recipe/"+key}>
            {data[key].name}
           <img src = {require("" + data[key].image)} alt = 'image'/>
           </p>
