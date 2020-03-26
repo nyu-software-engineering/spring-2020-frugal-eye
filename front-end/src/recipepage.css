@@ -1,0 +1,15 @@
+.back-button {
+    float: left;
+}
+
+.recipes-button {
+	float: right;
+	margin-top: -21px;
+}
+
+.recipe {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
