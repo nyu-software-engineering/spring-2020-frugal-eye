@@ -4,12 +4,17 @@ import './App.css';
 import Login from './Login'
 import Settings from './Settings'
 import Home from './Home'
+import AddIngredients from './AddIngredients'
 
 const App = (props) => {
   return (
     <div className="container">
         <Router>
             <Switch>
+
+                <Route path="/add-ingredients">
+                    <AddIngredients />
+                </Route>
 
                 <Route path="/settings">
                     <Settings />
