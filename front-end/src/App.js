@@ -25,12 +25,12 @@ const App = (props) => {
                     <Home />
                 </Route>
 
-                <Route path="/">
-                    <Login />
-                </Route>
-
                 <Route path = "/recipelist">
                     <RecipeList />
+                </Route>
+                
+                <Route path="/">
+                    <Login />
                 </Route>
 
             </Switch>
