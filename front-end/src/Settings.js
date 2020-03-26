@@ -20,6 +20,8 @@ const Settings = (props) => {
 
     return (
       <div>
+      <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+      <br></br><br></br>
       <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
         <h4>Change Login Information</h4>
