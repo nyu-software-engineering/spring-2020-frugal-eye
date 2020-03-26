@@ -31,6 +31,10 @@ const App = (props) => {
                     <RecipeList />
                 </Route>
 
+                <Route path="/recipe">
+                    <RecipePage />
+                </Route>
+
                 <Route path = "/favoritelist">
                     <FavoriteList />
                 </Route>
@@ -39,9 +43,6 @@ const App = (props) => {
                     <Login />
                 </Route>
 
-                <Route path="/recipe">
-                    <RecipePage />
-                </Route>
 
             </Switch>
         </Router>

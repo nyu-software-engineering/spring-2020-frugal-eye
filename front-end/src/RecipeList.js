@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import './RecipeList.css'
 import Popup from './components/Popup';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './register.css'
 
 const RecipeList = (props) => {
 
   const [matchPopup, setMatchPopup] = useState(true);
   const data = require("./Sampledata");
+  const key = ""
+
+
   return (
 
     //retrieve search params from props
@@ -22,13 +26,12 @@ const RecipeList = (props) => {
         closePopup={(h) => setMatchPopup(!matchPopup)} /> : null}
       {Object.keys(data).map((key, index) => {
         return(
-          <p className = 'recipe' onClick={null}>
-          {data[key].name}
+          <p className = 'recipe' onClick={event => window.location.href='/recipe'}>
+           {data[key].name}
           <img src = {require("" + data[key].image)} alt = 'image'/>
           </p>
         )
       })}
-
     </div>
   )
 }
