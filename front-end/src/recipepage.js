@@ -5,7 +5,7 @@ import './recipepage.css'
 const RecipePage = (props) => {
     const [matchPopup, setMatchPopup] = useState(true);
     const data = require("./Sampledata");
-    let {name} = useParams();
+    let {key} = useParams();
 
     let id = parseInt(useParams());
     //let {recipeName} = data[id].name;
@@ -17,17 +17,27 @@ alert(data[1])
     //name = props.recipeName
     return(
         <div>
-        <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
-        <br></br>
-        <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
-        <br></br>
-        <div className = "recipe">
-        <h3>{name}</h3>
-        <button onClick={null}>Add to Favorites</button>
-					<p>Cut the Foo</p>
-					<p>Break the Baz</p>
-					<p>Let the Bar raise</p>
-		</div>
+            <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+            <br></br>
+            <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
+            <br></br>
+            <div className = "recipe">
+                <img src = {require("" + data[key].image)} width="200" alt = 'image'/>
+                <h3>{data[key].name}</h3>
+                <button onClick={null}>Add to Favorites</button>
+                <p>Ingredients:</p>
+                <ul>
+                    {data[key].ingredients.map(ingredient => (
+                        <li>{ingredient}</li>
+                    ))}     
+                </ul>
+                <p>Instructions:</p>
+                <ul>
+                    <li>Cut the Foo</li>
+					<li>Break the Baz</li>
+					<li>Let the Bar raise</li>
+                </ul>
+            </div>
         </div>
     );
 }
