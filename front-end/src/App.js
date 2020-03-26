@@ -1,9 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
+
 //import Login from './Login'
 import Recipes from './recipe.js'
-
+import Login from './Login'
+import Settings from './Settings'
+import Home from './Home'
+import AddIngredients from './AddIngredients'
+import RecipeList from './RecipeList'
+import FavoriteList from './FavoriteList'
 const App = (props) => {
   return (
     <div className="container">
@@ -11,7 +17,30 @@ const App = (props) => {
             <Switch>
 
                 <Route path="/">
-                    <Recipes />
+                    <Login />
+                </Route>
+                <Route path="/add-ingredients">
+                    <AddIngredients />
+                </Route>
+
+                <Route path="/settings">
+                    <Settings />
+                </Route>
+
+                <Route path="/home">
+                    <Home />
+                </Route>
+
+                <Route path = "/recipelist">
+                    <RecipeList />
+                </Route>
+
+                <Route path = "/favoritelist">
+                    <FavoriteList />
+                </Route>
+
+                <Route path="/">
+                    <Login />
                 </Route>
 
             </Switch>

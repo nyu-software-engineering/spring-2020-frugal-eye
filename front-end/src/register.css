@@ -1,0 +1,16 @@
+.register {
+  display: flex;  
+  position: fixed;  
+  width: 80%;  
+  height: 80%;  
+  top: 0;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto; 
+  margin-top: 40px;
+  background-color: #7CE099;  
+}
