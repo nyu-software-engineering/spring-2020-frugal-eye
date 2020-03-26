@@ -16,6 +16,10 @@ const RecipeList = (props) => {
     //where props.action is sending to specific recipe page with param = recipe selected
 
   	<div class = "flex-container">
+      <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+      <br></br>
+      <button className="ingr-button" onClick={event => window.location.href='/add-ingredients'}>Back to ingredients</button>
+      <br></br>
       <h2>Recipes</h2>
       {matchPopup ? <Popup id = 'instructions' 
         text='Hi! Looks like this is your first time viewing recipes. The ones in green are those that you have all ingredients for, yellow are those you have some for.' 

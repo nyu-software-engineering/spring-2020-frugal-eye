@@ -22,11 +22,12 @@ const Settings = (props) => {
       <div>
       <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
-        <p>Change Login Information</p>
+        <h4>Change Login Information</h4>
             <label>
                 <input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
             </label>
-            <p></p>
+            <br></br>
+            <br></br>
             <label>
                 <input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
             </label>
@@ -36,7 +37,8 @@ const Settings = (props) => {
         <p></p>
         {showPopupAct ?
         <Popup  
-            text='Account information has been changed' 
+            text='Account information has been changed'
+
             closePopup={t => setShowPopupAct(!showPopupAct)}  
         />
         :
