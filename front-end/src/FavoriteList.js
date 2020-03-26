@@ -24,7 +24,7 @@ const FavoriteList = (props) => {
       {Object.keys(data).map((key, index) => {
         if(data[key].favorite){
           return(
-            <p className = 'recipe' onClick={null}>
+            <p className = 'recipe' onClick={event => window.location.href="/recipe/"+key}>
             {data[key].name}
             <img src = {require("" + data[key].image)} alt = 'image'/>
             </p>
