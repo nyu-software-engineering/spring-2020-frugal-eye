@@ -1,5 +1,5 @@
 body{
-	background: rgb(75, 139, 59);
+	background: #BAEDBF;
 }
 
 .Recipes {
@@ -14,8 +14,12 @@ body{
 	margin: 0 auto;
 	text-align: center; 
 	width: 200px;
-	border: 2px solid grey;
+	border-radius: 25px;
 	padding: 20px;
-	background: rgb(75, 180, 59);
+	background: #7CE099;
 	line-height:5px;
+}
+
+.button {
+	background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AEmpty_Star.svg&psig=AOvVaw2NDQ8wBqeFajohBwOE_FyO&ust=1585291671762000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIDBwOnFt-gCFQAAAAAdAAAAABAD)
 }

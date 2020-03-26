@@ -25,7 +25,7 @@ const Recipes = () => {
 <div className="Recipes">
 	<h2>Recipe List</h2>
 	<div className="box">
-		<button onclick="favorited()">Add to Favorites</button>
+		<button className="button" onclick="favorited()" >Add to Favorites</button>
 		<h3>Recipe Name</h3>
 		<h5>Ingredients:</h5>
 		<p>Foo</p>
