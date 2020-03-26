@@ -5,6 +5,7 @@ import Login from './Login'
 import Settings from './Settings'
 import Home from './Home'
 import AddIngredients from './AddIngredients'
+import RecipeList from './RecipeList'
 
 const App = (props) => {
   return (
@@ -26,6 +27,10 @@ const App = (props) => {
 
                 <Route path="/">
                     <Login />
+                </Route>
+
+                <Route path = "/recipelist">
+                    <RecipeList />
                 </Route>
 
             </Switch>
