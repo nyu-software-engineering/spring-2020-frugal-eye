@@ -7,6 +7,7 @@ import Home from './Home'
 import AddIngredients from './AddIngredients'
 import RecipeList from './RecipeList'
 import FavoriteList from './FavoriteList'
+import RecipePage from './recipepage'
 
 const App = (props) => {
   return (
@@ -32,6 +33,10 @@ const App = (props) => {
 
                 <Route path = "/favoritelist">
                     <FavoriteList />
+                </Route>
+
+                <Route path="/recipe">
+                    <RecipePage />
                 </Route>
 
                 <Route path="/">
