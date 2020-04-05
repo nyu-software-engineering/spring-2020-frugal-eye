@@ -1,6 +1,30 @@
-// import and instantiate express
-const express = require('express'); // CommonJS import style!
-const app = express(); // instantiate an Express object
-// we will put some server logic here later...
-// export the express app we created to make it available to other modules
+const express = require('express');
+const app = express();
+
+const bodyParser = require('body-parser')
+const axios = require("axios")
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.post('/', (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    if(username === "goodUser"){
+      res.sendStatus(200)
+    }
+    else if(username === "badUser"){
+      res.sendStatus(204)
+    }
+    else{
+      res.sendStatus(202)
+    }
+});
+
 module.exports = app;
