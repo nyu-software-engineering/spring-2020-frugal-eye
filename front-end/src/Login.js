@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Register from './Register';
 import Popup from './components/Popup';
 import './standard.css'
+import axios from 'axios';
 const Login = (props) => {
 
   const [username, setUsername] = useState("");
@@ -13,33 +14,38 @@ const Login = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
     let payload = {
-    	"username": username,
-    	"password": password
+      "username": username,
+      "password": password
     }
-    if(username === "goodUser"){
-      window.location.href='/Home'
-    }
-    else if(username === "badUser"){
-      setMatchPopup(true)
-    }
-    else{
-      setExistPopup(true)
-    }
+    axios.post('http://localhost:3000/', payload).then(function (response) {
+      console.log(response);
+      if(response.status == 200){
+        window.location.href='/Home'
+      }
+      else if(response.status == 204){
+        setMatchPopup(true)
+      }
+      else{
+        setExistPopup(true)
+      }
+   }).catch(function (error) {
+    console.log(error);
+  });
   }
 
   return (
-  	<div>
-    	<form onSubmit={handleSubmit}>
-    	<h1>Sprouts</h1>
-      	<label> 
-        		<input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
-      	</label>
-      	<p></p>
-      	<label> 
-        		<input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
-      	</label>
+    <div>
+      <form onSubmit={handleSubmit}>
+      <h1>Sprouts</h1>
+        <label> 
+            <input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
+        </label>
         <p></p>
-      	<input className="standard_button" type="submit" value="Go!" />
+        <label> 
+            <input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
+        </label>
+        <p></p>
+        <input className="standard_button" type="submit" value="Go!" />
         </form>
         <p></p>
         <button className="standard_button" onClick={g => setShowRegister(!showRegister)}>Register</button>  
@@ -65,7 +71,7 @@ const Login = (props) => {
         :
         null
         }
-    	</div>
+      </div>
   );
 }
 export default Login;
