@@ -34,7 +34,7 @@ A message will display saying that localhost:3000 is not available and ask if yo
 ### Testing Sprouts
 To test sprouts, navigate to Sprouts in the commandline
 
-Navigate to the back end ```cd back-end```
+Navigate to the back end ```cd back-end``` 
 
 Then run ```npm test```
 
