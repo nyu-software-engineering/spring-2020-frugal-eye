@@ -18,16 +18,24 @@ We plan to create an application that will allow users to input the current ingr
 ### Running Sprouts from Commandline
 Navigate to where the Sprouts folder is stored on your machine
 In one tab, navigate to the back end and run the server
+
 ```$ cd back-end```
+
 ```$ npm start```
+
 In another tab, navigate to the front end and run
+
 ```$ cd front-end```
+
 ```$ npm start ```
+
 A message will display saying that localhost:3000 is not available and ask if you want to use a different address instead. Type `y` for yes. 
 
 ### Testing Sprouts
 To test sprouts, navigate to Sprouts in the commandline
+
 Navigate to the back end ```cd back-end```
+
 Then run ```npm test```
 
 
