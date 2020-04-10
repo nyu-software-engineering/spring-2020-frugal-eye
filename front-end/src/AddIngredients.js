@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from './NavBar';
 import './AddIngredients.css';
 import './standard.css';
 
@@ -22,7 +23,7 @@ const AddIngredients = (props) =>{
     }
     return (
         <div>
-            <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
+            <NavBar/>
             <br></br>
             <h1>What's in your fridge?</h1>
             <div className="display-ingredients">
@@ -38,7 +39,7 @@ const AddIngredients = (props) =>{
                 </ul>
             </div>
             <form onSubmit={handleSubmit}>
-                <br></br>Input your ingredients:<br></br>
+                <br></br>Input your ingredients: <br></br>
                 <p></p>
                 <input className="ing_input" type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
                 <input className="ing_button" type="submit" value="Add"/>
