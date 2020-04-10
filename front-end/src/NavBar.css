@@ -1,0 +1,50 @@
+
+.nav {
+    background-color: #7CE099;
+	width: 100%;
+	float: left;
+	margin: 0 0 3em 0;
+	padding: 0;
+    list-style: none; 
+}
+    
+.nav li {
+    float: left; 
+}
+
+.nav li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    border-right: 1px solid black; 
+}
+
+.title {
+    display: block;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    width: 52%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.back-button {
+    background-color: white;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    text-indent: 0;
+    margin-left: 10px;
+    border: none;
+    display:inline-block;
+    color: black;
+    height: 30px;
+    width: 120px;
+    text-decoration: none;
+    text-align: center;
+}
