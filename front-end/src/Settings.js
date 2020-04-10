@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Popup from './components/Popup';
-import './standard.css'
+import './standard.css';
+import axios from 'axios';
+
 const Settings = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -13,9 +15,15 @@ const Settings = (props) => {
             "username": username,
             "password": password
         }
-        console.log(payload)
-        setShowPopupAct(true)
-        console.log(showPopupAct)
+        axios.post('http://localhost:3000/settings', payload).then(function (response) {
+        console.log(response);
+        if(response.status == 200){
+            setShowPopupAct(true)
+        }
+        }).catch(function (error) {
+            console.log(error);
+        });
+        
     }
 
     return (
@@ -63,4 +71,3 @@ const Settings = (props) => {
 
 }
 export default Settings;
-  
