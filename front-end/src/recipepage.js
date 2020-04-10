@@ -19,8 +19,7 @@ alert(data[1])
     return(
         <div>
             <NavBar/>
-            <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
-            <br></br>
+            <br></br><br></br>
             <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
             <br></br>
             <div className = "recipe">
