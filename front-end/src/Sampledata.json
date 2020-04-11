@@ -1,1 +1,6 @@
-{"1": {"name": "Chicken Pot Pie", "ingredients": ["Chicken", "Pot", "Pie"], "favorite": true, "image": "./potpie.jpg"}, "2": {"name": "Pepperoni Pizza", "ingredients": ["Pepperoni", "Pizza"], "favorite": false, "image": "./pepperonipizza.jpeg"}, "3": {"name": "Hamburger", "ingredients": ["Patty", "Cheese", "Buns"], "favorite": false, "image": "./hamburger.jpg"}}
+{"1": {"name": "Chicken Pot Pie", "ingredients": ["Chicken", "Pot", "Pie"], "favorite": false, 
+"instructions": ["Put chicken in pot", "Bake pot", "Make a pie"],"image": "./potpie.jpg"}, 
+"2": {"name": "Pepperoni Pizza", "ingredients": ["Pepperoni", "Pizza"], "favorite": false, 
+"instructions": ["Put pepperoni on pizza", "Bake pizza", "Slice pizza"],"image": "./pepperonipizza.jpeg"}, 
+"3": {"name": "Hamburger", "ingredients": ["Patty", "Cheese", "Buns"], "favorite": false, 
+"instructions": ["Put patty on bottom bun", "Put cheese on patty", "Put top bun on cheese"], "image": "./hamburger.jpg"}}
