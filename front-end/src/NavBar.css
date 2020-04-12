@@ -1,91 +1,48 @@
-/* .nav {
-    background-color: #7CE099;
-	width: 100%;
-	float: left;
-	margin: 0 0 3em 0;
-	padding: 0;
-    list-style: none; 
-}
-    
-.nav li {
-    float: left; 
-}
-
-.nav li a {
-    display: block;
-    padding: 8px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    border-right: 1px solid black; 
-}
-
 .title {
-    display: inline-block;
-    position: fixed;
-    font-size: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    left: 50%;
-} */
-
-
-.title2 {
     display: block;
-    font-size: 30px;
     text-decoration: none;
+    font-size: 20px;
     font-weight: bold;
     color: black;
-    margin: 0 auto;
-    text-align: center;
-    padding: 10px;
+    float: left;
+    padding-top: 7px;
+    padding-left: 10px;
 }
 
 #centeredmenu {
-    float:left;
     width:100%;
     background:#7CE099;
-    padding-bottom: 5px;
     border-bottom: 2px solid #000;
     overflow:hidden;
     position:relative;
     margin-bottom: 20px;
  }
  #centeredmenu ul {
-    clear:left;
-    float:left;
     list-style:none;
+    float: right; 
     margin:0;
     padding:0;
     position:relative;
-    left:50%;
     text-align:center;
  }
  #centeredmenu ul li {
     display:block;
-    float:left;
+    float: left;
     list-style:none;
     margin:0;
     padding:0;
     position:relative;
-    right:50%;
     border-right: 1px solid rgb(80, 120, 84);
  }
-
  #centeredmenu ul li:last-child {
     border-right: 0;
  }
- 
-
  #centeredmenu ul li a {
     text-decoration: none;
     font-weight: bold;
     display:block;
     margin:0;
-    padding:3px 10px;
+    padding:10px 10px;
     color:black;
     text-decoration:none;
     line-height:1.3em;
