@@ -39,3 +39,27 @@ describe("Login", () => {
       });
   });
 });
+
+describe("Register", () => {
+  it("Sends a 200 code for a password > 8 characters", done => {
+    chai
+      .request(app)
+      .post("/register")
+      .send({new_username: "testUser", new_password: "testpass"})
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+
+  it("Sends a 204 code for a password < 8 characters", done => {
+    chai
+      .request(app)
+      .post("/register")
+      .send({new_username: "testUser", new_password: "test"})
+      .end((err, res) => {
+        expect(res).to.have.status(204);
+        done();
+      });
+  });
+});
