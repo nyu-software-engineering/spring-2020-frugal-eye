@@ -27,4 +27,21 @@ app.post('/', (req, res) => {
     }
 });
 
+app.post('/register', (req, res) => {
+    const new_username = req.body.new_username
+    const new_password = req.body.new_password
+    if(new_password.length >= 8){
+      res.sendStatus(200)
+    }
+    else {
+      res.sendStatus(204)
+    }
+});
+
+app.post('/settings', (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    res.sendStatus(200)
+});
+
 module.exports = app;
