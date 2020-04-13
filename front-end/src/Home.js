@@ -1,6 +1,6 @@
 import React from 'react';
-import './standard.css'
 import './Home.css'
+import './standard.css'
 import NavBar from './NavBar'
 const Home = (props) => {
 
@@ -15,12 +15,11 @@ const Home = (props) => {
         <p>Users can choose what they want to cook from a variety of recipes and can also favorite recipes that they loved or would like to try making in the future.</p>
       </div>
       <br></br>
-    	<button className="standard_button" onClick={event => window.location.href='/add-ingredients'}>Input Ingredients</button>
-      <p></p>
-      <button className="standard_button" onClick={event => window.location.href='/favoritelist'}>View Favorites</button>
-      <p></p>
-      <button className="standard_button" onClick={event => window.location.href='/settings'}>Settings</button>
-    </div>
+        <button id="button1" className="standard_button" onClick={event => window.location.href='/add-ingredients'}>Input Ingredients</button>
+        <button className="standard_button" onClick={event => window.location.href='/favoritelist'}>View Favorites</button>
+        <p></p>
+        <button className="standard_button" onClick={event => window.location.href='/settings'}>Settings</button>
+      </div>
   );
 }
 export default Home;
