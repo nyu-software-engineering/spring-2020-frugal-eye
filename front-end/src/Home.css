@@ -1,6 +1,11 @@
 .intro {
 	text-align: center;
 	display:inline-block;
-	width: 400px;
-	padding-bottom: 10px;
+	width: 500px;
+	font-style: italic;
+	padding-bottom: 20px;
+}
+
+#button1 {
+	margin-right: 20px;
 }
