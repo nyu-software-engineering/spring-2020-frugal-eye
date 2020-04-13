@@ -63,3 +63,16 @@ describe("Register", () => {
       });
   });
 });
+
+describe("Settings", () => {
+  it("Sends a 200 code when user information is passed", done => {
+    chai
+      .request(app)
+      .post("/settings")
+      .send({username: "testUser", password: "testpass"})
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+});
