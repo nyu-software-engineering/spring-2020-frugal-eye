@@ -8,7 +8,7 @@
     padding-top: 7px;
     padding-left: 10px;
 }
-img {
+.icon {
     float: left;
     height: 40px;
     transform: rotate(30deg);
