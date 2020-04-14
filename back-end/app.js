@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -56,4 +56,10 @@ app.get('/favoritelist', (req, res) =>{
     res.json(body)
 });
 
+app.post('/add-ingredients', (req, res) => {
+    const ingredientsList = req.body.ingredientsList;
+    res.sendStatus(200)
+});
+
 module.exports = app;
+
