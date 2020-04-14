@@ -135,12 +135,30 @@ describe("Favorite List Page", () => {
 });
 
 describe("Recipe Page", () => { 
-  it("Sends a 200 code when loads recipe information", done => {
+  it("Returns a non-empty object as data", done => {
     chai
       .request(app)
-      .get("/recipe")
+      .get("/recipe/1")
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.be.an('object').that.is.not.empty;
+        done();
+      });
+  });
+  it("Returns a non-empty object as data", done => {
+    chai
+      .request(app)
+      .get("/recipe/2")
+      .end((err, res) => {
+        expect(res).to.be.an('object').that.is.not.empty;
+        done();
+      });
+  });
+    it("Returns a non-empty object as data", done => {
+    chai
+      .request(app)
+      .get("/recipe/3")
+      .end((err, res) => {
+        expect(res).to.be.an('object').that.is.not.empty;
         done();
       });
   });
