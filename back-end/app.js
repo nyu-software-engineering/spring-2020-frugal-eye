@@ -61,16 +61,16 @@ app.post('/add-ingredients', (req, res) => {
     res.sendStatus(200)
 });
 
-// app.get('/recipe', (req, res) => {
-// 	const body = require('../front-end/src/Samepledata2')
-//     res.json(body)
-// });
+app.get('/recipe', (req, res) => {
+	const body = require('../front-end/src/Samepledata2')
+    res.json(body)
+});
 
-//temporary tests for the hard coded sampledata json files
-// app.get('/recipe/1', (req, res) => {
-// 	const body = require('../front-end/src/Samepledata2')
-//     res.json(body)
-// });
+temporary tests for the hard coded sampledata json files
+app.get('/recipe/1', (req, res) => {
+	const body = require('../front-end/src/Samepledata2')
+    res.json(body)
+});
 
 app.get('/recipe/2', (req, res) => {
 	const body = require('../front-end/src/Samepledata2')
