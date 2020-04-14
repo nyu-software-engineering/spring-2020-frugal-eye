@@ -33,6 +33,7 @@ ul {
     width: 70px;
     text-decoration: none;
     text-align: center;
+    margin-left: 10px;
 }
 
 .display-ingredients {
@@ -51,6 +52,12 @@ ul {
 .features {
     float: right;
     padding-right: 20px;
+}
+
+.delButton {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
 }
 
 .rec_button {

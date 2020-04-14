@@ -39,7 +39,7 @@ const AddIngredients = (props) =>{
                         <div className="each-ingredient">
                             <li key={ingredients}>
                                 {ingredients}
-                                <div className="features"><button id={ingredients} onClick={handleDelete}>del</button></div>
+                                <div className="features"><button className="delButton" id={ingredients} onClick={handleDelete}>delete</button></div>
                             </li>
                         </div>
                     ))}     
