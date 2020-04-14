@@ -75,6 +75,8 @@ ul {
     width: 250px;
     text-decoration: none;
     text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 
 }
 .rec_button:hover {
