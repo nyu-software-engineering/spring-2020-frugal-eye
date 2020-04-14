@@ -29,7 +29,7 @@ const RecipePage = (props) => {
 		else{
 			data[key].favorite = false;
 		}
-		alert(data[key].favorite);
+		//alert(data[key].favorite);
 		return;
     }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page

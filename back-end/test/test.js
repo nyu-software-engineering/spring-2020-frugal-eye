@@ -133,3 +133,15 @@ describe("Favorite List Page", () => {
       });
   });
 });
+
+describe("Recipe Page", () => { 
+  it("Sends a 200 code when loads recipe information", done => {
+    chai
+      .request(app)
+      .get("/recipe")
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+});
