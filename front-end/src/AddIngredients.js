@@ -48,7 +48,7 @@ const AddIngredients = (props) =>{
             <form onSubmit={handleSubmit}>
                 <br></br>Input your ingredients: <br></br>
                 <p></p>
-                <input className="ing_input" type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
+                <input className="ing_input" type="text" name="ingredientInput" value={ingredient} onChange={handleChange} required/>
                 <input className="ing_array" type="text" name="ingredientArray" value={ingredientsList}/>
                 <input className="ing_button" type="submit" value="Add"/>
             </form>
