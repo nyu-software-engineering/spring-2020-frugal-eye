@@ -43,7 +43,7 @@ const RecipePage = (props) => {
             <br></br>
             <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
             <br></br><br></br>
-            <div className = "recipe">
+            <div className = "recipe2">
                 <img src = {require("" + data[key].image)} width="200" alt = 'image'/>
                 <h3>{data[key].name}</h3>
                 <button onClick={favorited}>Add to Favorites</button>
