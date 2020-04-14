@@ -44,9 +44,22 @@ app.post('/settings', (req, res) => {
     res.sendStatus(200)
 });
 
+app.get('/recipelist', (req, res) =>{
+    //axios.get our api in the future
+    const body = require('../front-end/src/Sampledata')
+    res.json(body)
+});
+
+app.get('/favoritelist', (req, res) =>{
+    //axios.get our api in the future w/ find function
+    const body = require('../front-end/src/Sampledata')
+    res.json(body)
+});
+
 app.post('/add-ingredients', (req, res) => {
     const ingredientsList = req.body.ingredientsList;
     res.sendStatus(200)
 });
 
 module.exports = app;
+
