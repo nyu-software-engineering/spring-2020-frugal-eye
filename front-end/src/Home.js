@@ -8,7 +8,7 @@ const Home = (props) => {
   	<div className="home">
       <NavBar/>
       <br></br>
-      <h1>Home</h1>
+      <h1>Welcome!</h1>
       <div className="intro">
         <p>Sprouts is an application designed to help individuals figure out what they can cook with leftover ingredients in their refrigerator.</p>
         <p>Users are required to input ingredients that are currently in their fridge to generate easy-to-follow recipes using those specific ingredients.</p>
