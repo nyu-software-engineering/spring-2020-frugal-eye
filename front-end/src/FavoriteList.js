@@ -9,7 +9,6 @@ const FavoriteList = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get('http://localhost:3000/favoritelist').then(function(response) {
-            console.log(response.data);
             setData(response.data);
     });
   }, []);
@@ -23,7 +22,9 @@ const FavoriteList = (props) => {
 
   	<div className = "flex-container">
     <NavBar/>
-        <br></br>
+      <br></br>
+      <p id = "help-text">If the box is green, you're all set! If it's yellow, you're missing some ingredients.</p>
+      <br></br>
       {Object.keys(data).map((key, index) => {
         if(data[key].favorite){
           return(
@@ -34,53 +35,8 @@ const FavoriteList = (props) => {
           )
         }else return "";
       })}
-
     </div>
   )
 }
 
 export default FavoriteList;
-
-// import React, {useState} from 'react';
-// import './RecipeList.css'
-// import Popup from './components/Popup';
-// import './register.css';
-// import axios from 'axios'
-
-// const FavoriteList = (props) => {
-
-//   const [matchPopup, setMatchPopup] = useState(true);
-
-//   const getData = async () => {
-//     let res = await axios.get('http://localhost:3000/favoritelist');
-//     const data = res.data;
-//     console.log(data)
-
-//     return (
-
-//       //retrieve search params from props
-//       //.find({ingredients = props.ingredients}, ingredients)
-//       //for {ingredient} in {ingredients}
-
-//       //where props.action is sending to specific recipe page with param = recipe selected
-
-//       <div className = "flex-container">
-//       <button className="back-button" onClick={event => window.location.href='/home'}>Back to home</button>
-//           <br></br>
-//         {Object.keys(data).map((key, index) => {
-//           if(data[key].favorite){
-//             return(
-//               <p className = 'recipe' onClick={null}>
-//               {data[key].name}
-//               <img src = {require("" + data[key].image)} alt = 'image'/>
-//               </p>
-//             )
-//           }else return "";
-//         })}
-
-//       </div>
-//     )
-//   }
-// }
-
-// export default FavoriteList;
