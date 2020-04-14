@@ -1,0 +1,8 @@
+
+.pic {
+    display:inline-block;
+    transform: rotate(30deg);
+    position: absolute;
+    top: 15px;
+}
+
