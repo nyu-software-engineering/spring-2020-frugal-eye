@@ -4,6 +4,7 @@ import Popup from './components/Popup';
 import NavBar from './NavBar';
 import axios from 'axios';
 import './recipepage.css'
+
 const RecipePage = (props) => {
     const [matchPopup, setMatchPopup] = useState(true);
     const data = require("./Sampledata2");
@@ -14,14 +15,14 @@ const RecipePage = (props) => {
 
    function favorited(){
 
-        axios.post('http://localhost:3000/recipe').then(function (response) {
-        console.log(response);
-        if(response.status == 200){
-            alert("Added to Favorites");
-        }
-        }).catch(function (error) {
-            console.log(error);
-        });
+        // axios.post('http://localhost:3000/recipe').then(function (response) {
+        // console.log(response);
+        // if(response.status == 200){
+        //     alert("Added to Favorites");
+        // }
+        // }).catch(function (error) {
+        //     console.log(error);
+        // });
 
 		if(data[key].favorite == false){
 			data[key].favorite = true;
@@ -29,14 +30,16 @@ const RecipePage = (props) => {
 		else{
 			data[key].favorite = false;
 		}
-		//alert(data[key].favorite);
+		alert("favorited");
 		return;
     }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page
     //name = props.recipeName
     return(
         <div>
-            <NavBar/>
+            <div>
+                <NavBar/>
+            </div>
             <br></br>
             <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
             <br></br><br></br>
