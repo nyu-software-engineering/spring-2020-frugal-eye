@@ -64,20 +64,14 @@ const Login = (props) => {
         :
         null
         }
-        {existPopup ? 
-        <Popup classname='popup'>
-          Username does not exist 
-
-        </Popup>
-        : null}
-        {/* {existPopup ?
+        {existPopup ?
         <Popup className="popup"  
             text='Username does not exist' 
             closePopup={i => setExistPopup(!existPopup)}  
         />
         :
         null
-        } */}
+        }
       </div>
   );
 }
