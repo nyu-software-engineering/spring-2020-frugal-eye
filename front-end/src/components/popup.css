@@ -3,7 +3,6 @@
 }
 
 .popup {
-  display: flex;  
   position: fixed;  
   width: 450px;  
   height: 200px;  
@@ -15,13 +14,21 @@
   justify-content: center;
   text-align: center;
   margin: 0 auto; 
-  margin-top: 40px;
+  margin-top: 80px;
   background-color: #7CE099;
   font-size: 10px;
+}
+
+.popup h1 {
+  margin-top: 60px;
 }
 
 #popup div {
   float: left;
   height: 600px;
   width: 600px;
+}
+
+#okButton {
+  
 }
