@@ -37,7 +37,7 @@ const Login = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Sprouts <img className="pic" src={require("./sprout-icon.png")} alt = 'image'/></h1> 
+        <h1 className="name">Sprouts <img className="pic" src={require("./sprout-icon.png")} alt = 'image'/></h1> 
         <label> 
             <input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
         </label>
