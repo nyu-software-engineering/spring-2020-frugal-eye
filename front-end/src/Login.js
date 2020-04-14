@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Register from './Register';
 import Popup from './components/Popup';
 import './standard.css'
+import './Login.css'
 import axios from 'axios';
 const Login = (props) => {
 
@@ -36,7 +37,7 @@ const Login = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-      <h1>Sprouts</h1>
+        <h1 className="name">Sprouts <img className="pic" src={require("./sprout-icon.png")} alt = 'image'/></h1> 
         <label> 
             <input className="standard_input" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
         </label>
@@ -56,21 +57,27 @@ const Login = (props) => {
         : null  
         }
         {matchPopup ?
-        <Popup  
+        <Popup className="popup"  
             text='Username and password do not match' 
             closePopup={h => setMatchPopup(!matchPopup)}  
         />
         :
         null
         }
-        {existPopup ?
-        <Popup  
+        {existPopup ? 
+        <Popup classname='popup'>
+          Username does not exist 
+
+        </Popup>
+        : null}
+        {/* {existPopup ?
+        <Popup className="popup"  
             text='Username does not exist' 
             closePopup={i => setExistPopup(!existPopup)}  
         />
         :
         null
-        }
+        } */}
       </div>
   );
 }

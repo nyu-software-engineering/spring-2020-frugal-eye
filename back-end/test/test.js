@@ -76,3 +76,16 @@ describe("Settings", () => {
       });
   });
 });
+
+describe("Ingredients Page", () => { 
+  it("sends a 200 code when ingredients is passed", done => {
+    chai
+      .request(app)
+      .post("/add-ingredients")
+      .send({ingredientsList: ["test1", "test2"]})
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+});

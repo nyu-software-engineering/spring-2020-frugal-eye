@@ -9,7 +9,6 @@ const RecipeList = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get('http://localhost:3000/favoritelist').then(function(response) {
-            console.log(response.data);
             setData(response.data);
     });
   }, []);
@@ -19,8 +18,11 @@ const RecipeList = (props) => {
     //for {ingredient} in {ingredients}
     //where props.action is sending to specific recipe page with param = recipe selected
     //onclick the name of the recipe from the recipelist will store the name in props and load recipe page
-    <div class = "flex-container">
+    <div className = "flex-container">
       <NavBar/>
+      <br></br>
+      <p id = "help-text">If the box is green, you're all set! If it's yellow, you're missing some ingredients.</p>
+      <br></br>
       {Object.keys(data).map((key, index) => {
         return(
           <p className = 'recipe' onClick={event => window.location.href="/recipe/"+key}>
