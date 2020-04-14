@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import NavBar from './NavBar';
 import './AddIngredients.css';
 import './standard.css';
+import axios from 'axios';
 
 const AddIngredients = (props) =>{
     const [ingredient, setIngredient] = useState("");
@@ -11,8 +12,14 @@ const AddIngredients = (props) =>{
         event.preventDefault();
         setIngredientsList(ingredientsList.concat(ingredient));
         setIngredient("");
-        console.log(ingredientsList);
     }
+    useEffect(() => {
+        axios.post('http://localhost:3000/add-ingredients', ingredientsList).then(function(response) {
+            console.log(response);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    });
     function handleChange(event) {
         setIngredient(event.target.value)
     }
@@ -32,7 +39,7 @@ const AddIngredients = (props) =>{
                         <div className="each-ingredient">
                             <li key={ingredients}>
                                 {ingredients}
-                                <div className="features"><button id={ingredients} onClick={handleDelete}>del</button></div>
+                                <div className="features"><button className="delButton" id={ingredients} onClick={handleDelete}>delete</button></div>
                             </li>
                         </div>
                     ))}     
@@ -41,7 +48,8 @@ const AddIngredients = (props) =>{
             <form onSubmit={handleSubmit}>
                 <br></br>Input your ingredients: <br></br>
                 <p></p>
-                <input className="ing_input" type="text" name="ingredientInput" value={ingredient} onChange={handleChange}/>
+                <input className="ing_input" type="text" name="ingredientInput" value={ingredient} onChange={handleChange} required/>
+                <input className="ing_array" type="text" name="ingredientArray" value={ingredientsList}/>
                 <input className="ing_button" type="submit" value="Add"/>
             </form>
             <br></br>
