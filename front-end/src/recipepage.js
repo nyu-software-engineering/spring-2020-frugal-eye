@@ -6,7 +6,7 @@ import axios from 'axios';
 import './recipepage.css'
 const RecipePage = (props) => {
     const [matchPopup, setMatchPopup] = useState(true);
-    const data = require("./Sampledata");
+    const data = require("./Sampledata2");
     let {key} = useParams();
 
     let id = parseInt(useParams());
