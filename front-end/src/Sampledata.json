@@ -1,0 +1,1 @@
+{"1": {"name": "Chicken Pot Pie", "ingredients": ["Chicken", "Pot", "Pie"], "favorite": true, "image": "./potpie.jpg"}, "2": {"name": "Pepperoni Pizza", "ingredients": ["Pepperoni", "Pizza"], "favorite": true, "image": "./pepperonipizza.jpeg"}, "3": {"name": "Hamburger", "ingredients": ["Patty", "Cheese", "Buns"], "favorite": false, "image": "./hamburger.jpg"}} 
