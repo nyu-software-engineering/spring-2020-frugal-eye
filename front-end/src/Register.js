@@ -45,7 +45,8 @@ const Register = (props) => {
             <input className="standard_input" type="password" value={new_password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
         </label>
         <p></p>
-        <input className="standard_button" type="submit" value="Go!" />
+        <input className="standard_button" type="submit" value="Sign up!" />
+        <button className="standard_button" onClick={props.closeWindow}>Go back</button>
       </form>
         {lengthPopup ?
         <Popup  
