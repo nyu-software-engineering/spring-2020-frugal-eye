@@ -66,7 +66,7 @@ app.get('/recipe', (req, res) => {
     res.json(body)
 });
 
-temporary tests for the hard coded sampledata json files
+//temporary tests for the hard coded sampledata json files
 app.get('/recipe/1', (req, res) => {
 	const body = require('../front-end/src/Samepledata2')
     res.json(body)
