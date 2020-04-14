@@ -78,13 +78,57 @@ describe("Settings", () => {
 });
 
 describe("Ingredients Page", () => { 
-  it("sends a 200 code when ingredients is passed", done => {
+  it("Sends a 200 code when ingredients is passed", done => {
     chai
       .request(app)
       .post("/add-ingredients")
       .send({ingredientsList: ["test1", "test2"]})
       .end((err, res) => {
         expect(res).to.have.status(200);
+        done();
+      });
+  });
+});
+
+describe("Recipe List Page", () => { 
+  it("Sends a 200 code when recipes are requested from API", done => {
+    chai
+      .request(app)
+      .get("/recipelist")
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+
+  it("Returns a non-empty object as data", done => {
+    chai
+      .request(app)
+      .get("/recipelist")
+      .end((err, res) => {
+        expect(res).to.be.an('object').that.is.not.empty;
+        done();
+      });
+  });
+});
+
+describe("Favorite List Page", () => { 
+  it("Sends a 200 code when favorite recipes are requested from API", done => {
+    chai
+      .request(app)
+      .get("/favoritelist")
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+
+  it("Returns a non-empty object as data", done => {
+    chai
+      .request(app)
+      .get("/recipelist")
+      .end((err, res) => {
+        expect(res).to.be.an('object').that.is.not.empty;
         done();
       });
   });
