@@ -12,20 +12,27 @@ const RecipePage = (props) => {
     //let {recipeName} = data[id].name;
 
    function favorited(){
-alert(data[1])
+		if(data[key].favorite == false){
+			data[key].favorite = true;
+		}
+		else{
+			data[key].favorite = false;
+		}
+		alert(data[key].favorite);
+		return;
     }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page
     //name = props.recipeName
     return(
         <div>
             <NavBar/>
-            <br></br><br></br>
-            <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
             <br></br>
+            <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
+            <br></br><br></br>
             <div className = "recipe">
                 <img src = {require("" + data[key].image)} width="200" alt = 'image'/>
                 <h3>{data[key].name}</h3>
-                <button onClick={null}>Add to Favorites</button>
+                <button onClick={favorited}>Add to Favorites</button>
                 <p>Ingredients:</p>
                 <ul>
                     {data[key].ingredients.map(ingredient => (
@@ -34,9 +41,9 @@ alert(data[1])
                 </ul>
                 <p>Instructions:</p>
                 <ul>
-                    <li>Cut the Foo</li>
-					<li>Break the Baz</li>
-					<li>Let the Bar raise</li>
+                    {data[key].instructions.map(instruction => (
+                        <li>{instruction}</li>
+                    ))}   
                 </ul>
             </div>
         </div>
