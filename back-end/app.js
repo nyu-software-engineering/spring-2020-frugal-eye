@@ -61,5 +61,9 @@ app.post('/add-ingredients', (req, res) => {
     res.sendStatus(200)
 });
 
+app.post('/recipe', (req, res) => {
+    res.sendStatus(200)
+});
+
 module.exports = app;
 

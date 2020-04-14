@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from "react-router";
 import Popup from './components/Popup';
 import NavBar from './NavBar';
+import axios from 'axios';
 import './recipepage.css'
 const RecipePage = (props) => {
     const [matchPopup, setMatchPopup] = useState(true);
@@ -12,6 +13,16 @@ const RecipePage = (props) => {
     //let {recipeName} = data[id].name;
 
    function favorited(){
+
+        axios.post('http://localhost:3000/recipe').then(function (response) {
+        console.log(response);
+        if(response.status == 200){
+            alert("Added to Favorites");
+        }
+        }).catch(function (error) {
+            console.log(error);
+        });
+
 		if(data[key].favorite == false){
 			data[key].favorite = true;
 		}
