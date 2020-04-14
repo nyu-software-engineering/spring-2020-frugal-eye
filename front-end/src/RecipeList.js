@@ -4,9 +4,15 @@ import Popup from './components/Popup';
 import NavBar from './NavBar';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './register.css'
+import axios from 'axios'
 const RecipeList = (props) => {
   const [matchPopup, setMatchPopup] = useState(true);
-  const data = require("./Sampledata");
+  const data = {};
+  axios.get('http://localhost:3000/recipelist').then(function(res) {
+            data = res;
+  }).catch(function(error) {
+            console.log(error);
+  });
   return (
     //retrieve search params from props
     //.find({ingredients = props.ingredients}, ingredients)
