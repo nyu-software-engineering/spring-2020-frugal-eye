@@ -1,8 +1,12 @@
+require('./db')
 const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser')
 const axios = require("axios")
+
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
