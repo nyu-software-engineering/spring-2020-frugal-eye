@@ -61,7 +61,7 @@ app.get('/favoritelist', (req, res) =>{
 });
 
 app.post('/add-ingredients', (req, res) => {
-    const ingredientsList = req.body.ingredientsList;
+    const ingredientsList = req.body;
     res.sendStatus(200)
 });
 
@@ -87,4 +87,5 @@ app.get('/recipe/3', (req, res) => {
 });
 
 module.exports = app;
+
 
