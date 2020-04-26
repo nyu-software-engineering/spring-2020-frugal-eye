@@ -4,6 +4,7 @@ const app = express();
 
 const bodyParser = require('body-parser')
 const axios = require("axios")
+const bcrypt = require('bcrypt');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
@@ -35,10 +36,25 @@ app.post('/register', (req, res) => {
     const new_username = req.body.new_username
     const new_password = req.body.new_password
     if(new_password.length >= 8){
-      res.sendStatus(200)
+      User.findOne({username: req.body.new_username}).then(function(currentUser) {
+        if(currentUser) {
+          console.log("User is already registered:", currentUser);
+          res.sendStatus(205);
+        } else {
+          var newUser = new User({
+            username: req.body.new_username,
+            password: bcrypt.hashSync(req.body.new_password, bcrypt.genSaltSync(10))
+          });
+          newUser.save(function(err, user) {
+            if (err) throw err;
+            console.log("User has been registered!")
+          })
+          res.sendStatus(200);
+        }
+      });
     }
     else {
-      res.sendStatus(204)
+      res.sendStatus(204);
     }
 });
 
