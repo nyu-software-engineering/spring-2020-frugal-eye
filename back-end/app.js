@@ -42,7 +42,7 @@ app.post('/register', (req, res) => {
         } else {
           var newUser = new User({
             username: req.body.new_username,
-            password: req.body.new_password
+            password: bcrypt.hashSync(req.body.new_password, bcrypt.genSaltSync(10))
           });
           newUser.save(function(err, user) {
             if (err) throw err;
