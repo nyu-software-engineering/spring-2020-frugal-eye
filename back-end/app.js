@@ -39,6 +39,7 @@ app.post('/register', (req, res) => {
       User.findOne({username: req.body.new_username}).then(function(currentUser) {
         if(currentUser) {
           console.log("User is already registered:", currentUser);
+          res.sendStatus(205);
         } else {
           var newUser = new User({
             username: req.body.new_username,
