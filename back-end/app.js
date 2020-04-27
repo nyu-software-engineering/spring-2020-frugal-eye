@@ -61,7 +61,30 @@ app.post('/register', (req, res) => {
 app.post('/settings', (req, res) => {
     const username = req.body.username
     const password = req.body.password
-    res.sendStatus(200)
+    const new_username = req.body.new_username
+    const new_password = req.body.new_password
+
+    User.findOne({username: req.body.new_username}).then(function(currentUser) {
+        if(!currentUser) {
+          res.sendStatus(205);
+        } else {
+          if (new_username != ""){
+            currentUser.username = new_username;
+          }
+          if (new_password != ""){
+            if (new_password.length >= 8) {
+                currentUser.password = bcrypt.hashSync(new_password, bcrypt.genSaltSync(10))
+            }
+            else {
+                res.sendStatus(204);
+            }
+          }
+          currentUser.save(function(err, user) {
+            if (err) throw err;
+          })
+          res.sendStatus(200);
+        }
+    });
 });
 
 app.get('/recipelist', (req, res) =>{

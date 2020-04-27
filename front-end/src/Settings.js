@@ -6,20 +6,32 @@ import NavBar from './NavBar.js'
 
 const Settings = (props) => {
     const [username, setUsername] = useState("");
+    const [new_username, setNewUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [new_password, setNewPassword] = useState("");
     const [showPopupAct, setShowPopupAct] = useState(false);
     const [showPopupDel, setShowPopupDel] = useState(false);
+    const [lengthPopup, setLengthPopup] = useState(false);
+    const [existPopup, setExistPopup] = useState(false);
 
     function handleSubmit(event) {
         event.preventDefault();
         var payload = {
             "username": username,
-            "password": password
+            "new_username": new_username,
+            "password": password,
+            "new_password": new_password
         }
         axios.post('http://localhost:3000/settings', payload).then(function (response) {
         console.log(response);
         if(response.status == 200){
             setShowPopupAct(true)
+        }
+        else if(response.status == 204){
+            setLengthPopup(true)
+        }
+        else if(response.status == 205){
+            setExistPopup(true)
         }
         }).catch(function (error) {
             console.log(error);
@@ -40,7 +52,17 @@ const Settings = (props) => {
                 <br></br>
                 <br></br>
                 <label>
+                    <input className="standard_input" type="text" value={new_username} onChange={e => setNewUsername(e.target.value)} placeholder="New Username"/>
+                </label>
+                <br></br>
+                <br></br>
+                <label>
                     <input className="standard_input" type="password" value={password} onChange={f => setPassword(f.target.value)} placeholder="Password"/>
+                </label>
+                <br></br>
+                <br></br>
+                <label>
+                    <input className="standard_input" type="password" value={new_password} onChange={f => setNewPassword(f.target.value)} placeholder="New Password"/>
                 </label>
                 <p></p>
                 <input className="standard_button" type="submit" value="Change" />
@@ -55,6 +77,22 @@ const Settings = (props) => {
             :
             null
             }  
+            {lengthPopup ?
+            <Popup  
+                text='Password must be at least 8 characters' 
+                closePopup={h => setLengthPopup(!lengthPopup)}  
+            />
+            :
+            null
+            }
+            {existPopup ?
+            <Popup className="popup"  
+                text='Username does not exist' 
+                closePopup={i => setExistPopup(!existPopup)}  
+            />
+            :
+            null
+            }
             <button className="standard_button" onClick={h => setShowPopupDel(!showPopupDel)}>Clear Favorites</button>
             {showPopupDel ?
             <Popup  
