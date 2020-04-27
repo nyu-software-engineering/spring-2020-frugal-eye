@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const User = new mongoose.Schema({
     username: String,
@@ -10,6 +11,14 @@ const User = new mongoose.Schema({
 //TODO: add schema for recipes 
 // const Recipe = new mongoose.Schema({
 // });
+
+User.methods.isValidPassword = async function(newPassword) {
+	try {
+		return await bcrypt.compare(newPassword, this.password);
+	} catch(error) {
+		throw new Error(error);
+	}
+}
 
 mongoose.model("User", User);
 

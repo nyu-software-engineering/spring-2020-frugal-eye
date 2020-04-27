@@ -28,7 +28,7 @@ const App = (props) => {
                 </Route>
 
                 <Route path = "/recipelist">
-                    <RecipeList />
+                    <RecipeList />)
                 </Route>
 
                 <Route path = "/favoritelist">

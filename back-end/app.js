@@ -5,9 +5,13 @@ const app = express();
 const bodyParser = require('body-parser')
 const axios = require("axios")
 const bcrypt = require('bcrypt');
+const JWT = require('jsonwebtoken');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+
+const passport = require('passport')
+const passportConf = require('./passport');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -18,18 +22,33 @@ app.use(function(req, res, next) {
   next();
 });
 
+signToken = user => {
+  return JWT.sign({
+    iss: 'frugaleye',
+    sub: user.id,
+    iat: new Date().getTime(),
+    exp: new Date().setDate(new Date().getDate() + 1)
+  }, 'frugaleyeauthentication');
+}
+
 app.post('/', (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
-    if(username === "goodUser"){
-      res.sendStatus(200)
-    }
-    else if(username === "badUser"){
-      res.sendStatus(204)
-    }
-    else{
-      res.sendStatus(202)
-    }
+    passport.authenticate('local', {session: false}, (err, user, info) => {
+        if (err) {
+            if (err == "Incorrect password") {
+              res.sendStatus(204);
+            }
+            return res.status(400).json({
+                message: info ? info.message : 'Login failed',
+                user   : user
+            });
+        }
+        if (!user) {
+            res.sendStatus(205);
+        }
+        const token = signToken(user);
+        res.status(200).json({ token: token });
+    })
+    (req, res);
 });
 
 app.post('/register', (req, res) => {
@@ -49,7 +68,8 @@ app.post('/register', (req, res) => {
             if (err) throw err;
             console.log("User has been registered!")
           })
-          res.sendStatus(200);
+          const token = signToken(newUser);
+          res.status(200).json({ token: token });
         }
       });
     }
@@ -59,31 +79,76 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/settings', (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
-    res.sendStatus(200)
+  passport.authenticate('jwt', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: info ? info.message : 'Auth failed',
+                user   : user
+            });
+        }
+        const username = req.body.username
+        const password = req.body.password
+        res.sendStatus(200)
+    })
+    (req, res);
 });
 
-app.get('/recipelist', (req, res) =>{
-    //axios.get our api in the future
-    const body = require('../front-end/src/Sampledata')
-    res.json(body)
+app.get('/recipelist', (req, res) => {
+  passport.authenticate('jwt', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: info ? info.message : 'Auth failed',
+                user   : user
+            });
+        }
+        //axios.get our api in the future
+        const body = require('../front-end/src/Sampledata')
+        res.json(body)
+    })
+    (req, res);
 });
 
-app.get('/favoritelist', (req, res) =>{
-    //axios.get our api in the future w/ find function
-    const body = require('../front-end/src/Sampledata')
-    res.json(body)
+app.get('/favoritelist', (req, res) => {
+  passport.authenticate('jwt', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: info ? info.message : 'Auth failed',
+                user   : user
+            });
+        }
+        //axios.get our api in the future w/ find function
+        const body = require('../front-end/src/Sampledata')
+        res.json(body)
+    })
+    (req, res);
 });
 
 app.post('/add-ingredients', (req, res) => {
-    const ingredientsList = req.body;
-    res.sendStatus(200)
+    passport.authenticate('jwt', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: info ? info.message : 'Auth failed',
+                user   : user
+            });
+        }
+        const ingredientsList = req.body;
+        res.sendStatus(200)
+    })
+    (req, res);
 });
 
 app.get('/recipe', (req, res) => {
-	const body = require('../front-end/src/Sampledata2')
-    res.json(body)
+  passport.authenticate('jwt', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: info ? info.message : 'Auth failed',
+                user   : user
+            });
+        }
+        const body = require('../front-end/src/Sampledata2')
+        res.json(body)
+    })
+    (req, res);
 });
 
 //temporary tests for the hard coded sampledata json files
