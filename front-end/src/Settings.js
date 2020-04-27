@@ -13,6 +13,8 @@ const Settings = (props) => {
     const [showPopupDel, setShowPopupDel] = useState(false);
     const [lengthPopup, setLengthPopup] = useState(false);
     const [existPopup, setExistPopup] = useState(false);
+    const [wrongPopup, setWrongPopup] = useState(false);
+    const [alreadyPopup, setAlreadyPopup] = useState(false);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -32,6 +34,12 @@ const Settings = (props) => {
         }
         else if(response.status == 205){
             setExistPopup(true)
+        }
+        else if(response.status == 206){
+            setWrongPopup(true)
+        }
+        else if(response.status == 207){
+            setAlreadyPopup(true)
         }
         }).catch(function (error) {
             console.log(error);
@@ -89,6 +97,22 @@ const Settings = (props) => {
             <Popup className="popup"  
                 text='Username does not exist' 
                 closePopup={i => setExistPopup(!existPopup)}  
+            />
+            :
+            null
+            }
+            {wrongPopup ?
+            <Popup  
+                text='Incorrect password' 
+                closePopup={k => setWrongPopup(!wrongPopup)}  
+            />
+            :
+            null
+            }
+            {alreadyPopup ?
+            <Popup  
+                text='You cannot set this as you username, it already exists' 
+                closePopup={y => setAlreadyPopup(!alreadyPopup)}  
             />
             :
             null
