@@ -7,7 +7,7 @@ const User = new mongoose.Schema({
     //favorites: {type: mongoose.Schema.Types.ObjectId, ref:'Recipe'},
 });
 
-TODO: add schema for recipes 
+//TODO: add schema for recipes 
 const Recipe = new mongoose.Schema({
 	id: Number,
 	recipe_name: String,
