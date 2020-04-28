@@ -12,6 +12,8 @@ const RecipeList = (props) => {
             setData(response.data);
     });
   }, []);
+
+
   return (
     //retrieve search params from props
     //.find({ingredients = props.ingredients}, ingredients)

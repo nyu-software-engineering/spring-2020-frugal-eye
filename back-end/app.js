@@ -49,12 +49,27 @@ app.post('/settings', (req, res) => {
 });
 
 app.get('/recipelist', (req, res) =>{
+    // mongodb -> user info -> ingredients -> edit string for API request -> return correct items
+    // still need to implement picture from API to real pic on website
+    // & colors.-
     //axios.get our api in the future
+
+    //Get DB object, take the object of ingredients.
+    //call API with ingredients as the search filter
+    //https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2
+
+    //return said .json
+
+
     const body = require('../front-end/src/Sampledata')
     res.json(body)
 });
 
 app.get('/favoritelist', (req, res) =>{
+    mongoose.find({user: "this current user"}, function(data){
+      //stringify this and return it to res
+    });
+
     //axios.get our api in the future w/ find function
     const body = require('../front-end/src/Sampledata')
     res.json(body)
