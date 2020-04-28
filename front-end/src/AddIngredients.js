@@ -7,12 +7,12 @@ import axios from 'axios';
 const AddIngredients = (props) =>{
     const [ingredient, setIngredient] = useState("");
     const [ingredientsList, setIngredientsList] = useState([]);
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        setIngredientsList(ingredientsList.concat(ingredient));
-        setIngredient("");
-    }
+    
+    useEffect(() => {
+        axios.get('http://localhost:3000/add-ingredients').then(function(response) {
+                setIngredientsList(ingredientsList.concat(response.data));
+        });
+      }, []);
     useEffect(() => {
         axios.post('http://localhost:3000/add-ingredients', ingredientsList).then(function(response) {
             console.log(response);
@@ -20,6 +20,11 @@ const AddIngredients = (props) =>{
             console.log(error);
         });
     });
+    function handleSubmit(event) {
+        event.preventDefault();
+        setIngredientsList(ingredientsList.concat(ingredient));
+        setIngredient("");
+    }
     function handleChange(event) {
         setIngredient(event.target.value)
     }
