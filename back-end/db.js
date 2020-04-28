@@ -8,22 +8,22 @@ const User = new mongoose.Schema({
 });
 
 //TODO: add schema for recipes 
-const Recipe = new mongoose.Schema({
-	id: Number,
-	recipe_name: String,
-	image: String,
-	//imageType: String,
-	missedIngredientCount: Number,
-	usedIngredientCount: Number,
-	ingredient: {
-		ingredient_name: String,
-		amount: Number,
-		units: String
-	},
-	ingredients: [ingredient],
-	numberSteps: Number,
-	steps: [String]
-});
+// const Recipe = new mongoose.Schema({
+// 	id: Number,
+// 	recipe_name: String,
+// 	image: String,
+// 	//imageType: String,
+// 	missedIngredientCount: Number,
+// 	usedIngredientCount: Number,
+// 	ingredient: {
+// 		ingredient_name: String,
+// 		amount: Number,
+// 		units: String
+// 	},
+// 	ingredients: [ingredient],
+// 	numberSteps: Number,
+// 	steps: [String]
+// });
 
 mongoose.model("User", User);
 

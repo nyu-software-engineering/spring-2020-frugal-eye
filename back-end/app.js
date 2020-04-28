@@ -65,6 +65,23 @@ app.post('/settings', (req, res) => {
 });
 
 app.get('/recipelist', (req, res) =>{
+  User.findOne({}, function(err, user){
+      if(err) throw err;
+      let input = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=097d255cf08b43c38036c60fb487d129&ingredients="
+      for(let i=0; i< user.ingredients.length; i++){
+        input += user.ingredients[i];
+        if(i !== user.ingredients.length-1){
+           input += ",+";
+        }
+      }
+      input+= "&number=2";
+      console.log(input)
+      axios.get(input).then(function(response) {
+            console.log(response.data)
+            res.send({data:response.data});
+      });
+
+    });
     // mongodb -> user info -> ingredients -> edit string for API request -> return correct items
     // still need to implement picture from API to real pic on website
     // & colors.-
@@ -82,8 +99,11 @@ app.get('/recipelist', (req, res) =>{
 });
 
 app.get('/favoritelist', (req, res) =>{
-    mongoose.find({user: "this current user"}, function(data){
-      //stringify this and return it to res
+    User.findOne({}, function(err, user){
+      if(err) throw err;
+        //send favorites into res.body
+      
+
     });
 
     //axios.get our api in the future w/ find function
