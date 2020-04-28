@@ -4,7 +4,7 @@ const User = new mongoose.Schema({
     username: String,
     password: String,
     ingredients: [String]
-    //favorites: {type: mongoose.Schema.Types.ObjectId, ref:'Recipe'},
+    favorites: {type: mongoose.Schema.Types.ObjectId, ref:'Recipe'},
 });
 
 //TODO: add schema for recipes 
@@ -12,10 +12,17 @@ const Recipe = new mongoose.Schema({
 	id: Number,
 	recipe_name: String,
 	image: String,
-	imageType: String,
+	//imageType: String,
 	missedIngredientCount: Number,
 	usedIngredientCount: Number,
-	ingredients: [String]
+	ingredient: {
+		ingredient_name: String,
+		amount: Number,
+		units: String
+	},
+	ingredients: [ingredient],
+	numberSteps: Number,
+	steps: [String]
 });
 
 mongoose.model("User", User);
