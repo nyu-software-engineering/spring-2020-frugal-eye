@@ -9,6 +9,7 @@ const Register = (props) => {
   const [new_password, setPassword] = useState("");
   const [lengthPopup, setLengthPopup] = useState(false);
   const [errorPopup, setErrorPopup] = useState(false);
+  const [alreadyRegisteredPopup, setAlreadyRegisteredPopup] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,14 +23,17 @@ const Register = (props) => {
         {props.closeWindow()}
       }
       else if(response.status == 204){
-        setLengthPopup(true)
+        setLengthPopup(true);
+      } 
+      else if(response.status == 205){
+        setAlreadyRegisteredPopup(true);
       }
       else{
         setErrorPopup(true)
       }
     }).catch(function (error) {
       console.log(error);
-      setErrorPopup(true)
+      setErrorPopup(true);
     });
   }
 
@@ -56,7 +60,15 @@ const Register = (props) => {
         :
         null
         }
-        {errorPopup ?
+         {alreadyRegisteredPopup ?
+        <Popup  
+            text='Error: User is already registered' 
+            closePopup={j => setAlreadyRegisteredPopup(!alreadyRegisteredPopup)}  
+        />
+        :
+        null
+        }
+          {errorPopup ?
         <Popup  
             text='Error creating user profile' 
             closePopup={i => setErrorPopup(!errorPopup)}  
