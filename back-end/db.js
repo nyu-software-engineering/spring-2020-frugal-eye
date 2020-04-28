@@ -15,15 +15,16 @@ const Recipe = new mongoose.Schema({
 	//imageType: String,
 	missedIngredientCount: Number,
 	usedIngredientCount: Number,
-	ingredient: {
-		ingredient_name: String,
-		amount: Number,
-		units: String
-	},
-	ingredients: [ingredient],
+	ingredients: [Number],
 	numberSteps: Number,
 	steps: [String]
 });
+
+const Ingredient =  new mongoose.Schema({
+	ingredient_name: String,
+	amount: Number,
+	units: String
+})
 
 mongoose.model("User", User);
 
