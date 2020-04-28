@@ -21,6 +21,7 @@ app.use(function(req, res, next) {
 app.post('/', (req, res) => {
     const username = req.body.username
     const password = req.body.password
+
     if(username === "goodUser"){
       res.sendStatus(200)
     }
@@ -58,10 +59,58 @@ app.post('/register', (req, res) => {
     }
 });
 
-app.post('/settings', (req, res) => {
+app.post('/settings', async (req, res) => {
     const username = req.body.username
     const password = req.body.password
-    res.sendStatus(200)
+    const new_username = req.body.new_username
+    const new_password = req.body.new_password
+
+    const user = await User.findOne({username: username})
+    if (!user){
+        return res.sendStatus(205);
+    }
+    const check_user = await User.findOne({username: new_username})
+    if (check_user){
+        return res.sendStatus(207);
+    }
+
+    /*
+    const isMatch = user.isValidPassword(password);
+
+    if (!isMatch) {
+        res.sentStatus(206);
+    }
+    */
+    let update_user = "";
+    let update_pass = "";
+
+    if (new_username != "") {
+        update_user = new_username;
+    }
+    else {
+        update_user = username;
+    }
+    if (new_password != "") {
+        if (new_password.length >= 8) {
+            update_pass = bcrypt.hashSync(new_password, bcrypt.genSaltSync(10));
+        }
+        else {
+            return res.sendStatus(204)
+        }
+    }
+    else {
+        update_pass = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+    }
+    console.log(update_user);
+    console.log(update_pass);
+
+    const updateUser = await User.findOneAndUpdate({ username: username },
+        { username: update_user, password: update_pass }, {
+        returnOriginal: false,
+        useFindAndModify: false
+    });
+    console.log(updateUser.username)
+    res.sendStatus(200);
 });
 
 app.get('/recipelist', (req, res) =>{
