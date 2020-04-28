@@ -77,7 +77,10 @@ app.get('/favoritelist', (req, res) =>{
 });
 
 app.post('/add-ingredients', (req, res) => {
-    const ingredientsList = req.body;
+  //TODO: need to add ingredients onto current user after user authorization is implemented, for now added it to first object in the User collection
+    User.findOneAndUpdate({}, {ingredients: req.body}, function(err, ingredients) {
+      if (err) throw err;
+    })
     res.sendStatus(200)
 });
 
