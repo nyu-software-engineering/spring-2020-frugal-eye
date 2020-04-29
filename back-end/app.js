@@ -124,9 +124,7 @@ app.get('/recipelist', (req, res) =>{
         }
       }
       input+= "&number=2";
-      console.log(input)
       axios.get(input).then(function(response) {
-            console.log(response.data)
             res.send({data:response.data});
       });
 
@@ -141,10 +139,6 @@ app.get('/recipelist', (req, res) =>{
     //https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2
 
     //return said .json
-
-
-    const body = require('../front-end/src/Sampledata')
-    res.json(body)
 });
 
 app.get('/favoritelist', (req, res) =>{
