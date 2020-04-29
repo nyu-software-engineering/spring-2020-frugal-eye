@@ -8,10 +8,12 @@ import axios from 'axios'
 const RecipeList = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/favoritelist').then(function(response) {
+    axios.get('http://localhost:3000/recipelist').then(function(response) {
             setData(response.data);
     });
   }, []);
+
+
   return (
     //retrieve search params from props
     //.find({ingredients = props.ingredients}, ingredients)
