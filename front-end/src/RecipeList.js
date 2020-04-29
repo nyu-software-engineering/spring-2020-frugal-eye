@@ -8,10 +8,12 @@ import axios from 'axios'
 const RecipeList = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/favoritelist').then(function(response) {
-            setData(response.data);
+    axios.get('http://localhost:3000/recipelist').then(function(response) {
+        setData(response.data.data);
+        console.log(response.data.data);
     });
   }, []);
+
   return (
     //retrieve search params from props
     //.find({ingredients = props.ingredients}, ingredients)
@@ -23,14 +25,12 @@ const RecipeList = (props) => {
       <br></br>
       <p id = "help-text">If the box is green, you're all set! If it's yellow, you're missing some ingredients.</p>
       <br></br>
-      {Object.keys(data).map((key, index) => {
-        return(
-          <p className = 'recipe' onClick={event => window.location.href="/recipe/"+key}>
-          {data[key].name}
-          <img src = {require("" + data[key].image)} alt = 'image'/>
+      {data.map((key, index) => (
+          <p className = {data[index].missedIngredientCount > 0 ? 'yellowrecipe' : 'greenrecipe'} onClick={event => window.location.href="/recipe/"+key}>
+          {data[index].title}
+          <img src = {data[index].image} alt = 'image'/>
           </p>
-        )
-      })}
+      ))}
     </div>
   )
 }

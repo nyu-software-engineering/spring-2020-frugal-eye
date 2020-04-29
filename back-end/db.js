@@ -8,17 +8,17 @@ const User = new mongoose.Schema({
 });
 
 //TODO: add schema for recipes 
-const Recipe = new mongoose.Schema({
-	id: Number,
-	recipe_name: String,
-	image: String,
-	//imageType: String,
-	missedIngredientCount: Number,
-	usedIngredientCount: Number,
-	ingredients: [Number],
-	numberSteps: Number,
-	steps: [String]
-});
+//const Recipe = new mongoose.Schema({
+//	id: Number,
+//	recipe_name: String,
+//	image: String,
+//	//imageType: String,
+//	missedIngredientCount: Number,
+//	usedIngredientCount: Number,
+//	ingredients: [Number],
+//	numberSteps: Number,
+//	steps: [String]
+//});
 
 const Ingredient =  new mongoose.Schema({
 	ingredient_name: String,
