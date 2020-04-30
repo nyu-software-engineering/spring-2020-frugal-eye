@@ -8,13 +8,16 @@ const AddIngredients = (props) =>{
     const [ingredient, setIngredient] = useState("");
     const [ingredientsList, setIngredientsList] = useState([]);
 
+    const token = window.localStorage.getItem('token');
+
     function handleSubmit(event) {
         event.preventDefault();
         setIngredientsList(ingredientsList.concat(ingredient));
         setIngredient("");
     }
     useEffect(() => {
-        axios.post('http://localhost:3000/add-ingredients', ingredientsList).then(function(response) {
+        axios.post('http://localhost:3000/add-ingredients', ingredientsList, {
+        headers: { Authorization: token }}).then(function(response) {
             console.log(response);
         }).catch(function(error) {
             console.log(error);
@@ -28,6 +31,10 @@ const AddIngredients = (props) =>{
         let item = event.target.id;
         setIngredientsList(ingredientsList.filter((e) => (e !== item)));
     }
+
+    if (token == null)
+        { window.location.href='/' }
+
     return (
         <div>
             <NavBar/>

@@ -7,11 +7,19 @@ import axios from 'axios'
 
 const FavoriteList = (props) => {
   const [data, setData] = useState([]);
+  
+  const token = window.localStorage.getItem('token');
+
   useEffect(() => {
-    axios.get('http://localhost:3000/favoritelist').then(function(response) {
+    axios.get('http://localhost:3000/favoritelist', {
+        headers: { Authorization: token }}).then(function(response) {
             setData(response.data);
     });
   }, []);
+
+  if (token == null)
+        { window.location.href='/' }
+
   return (
 
     //retrieve search params from props
