@@ -4,6 +4,11 @@ import './standard.css'
 import NavBar from './NavBar'
 const Home = (props) => {
 
+  const token = window.localStorage.getItem('token');
+
+  if (token == null)
+    { window.location.href='/' }
+
   return (
   	<div className="home">
       <NavBar/>

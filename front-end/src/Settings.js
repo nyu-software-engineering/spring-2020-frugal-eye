@@ -16,6 +16,8 @@ const Settings = (props) => {
     const [wrongPopup, setWrongPopup] = useState(false);
     const [alreadyPopup, setAlreadyPopup] = useState(false);
 
+    const token = window.localStorage.getItem('token');
+
     function handleSubmit(event) {
         event.preventDefault();
         var payload = {
@@ -24,7 +26,8 @@ const Settings = (props) => {
             "password": password,
             "new_password": new_password
         }
-        axios.post('http://localhost:3000/settings', payload).then(function (response) {
+        axios.post('http://localhost:3000/settings', payload, {
+        headers: { Authorization: token }}).then(function (response) {
         console.log(response);
         if(response.status == 200){
             setShowPopupAct(true)
@@ -46,6 +49,15 @@ const Settings = (props) => {
         });
         
     }
+
+    function handleLogOut(event){
+        //clear jwt from local storage
+        window.localStorage.clear()
+        { window.location.href='/' }
+    }
+
+    if (token == null)
+        { window.location.href='/' }
 
     return (
       <div>
@@ -111,7 +123,7 @@ const Settings = (props) => {
             }
             {alreadyPopup ?
             <Popup  
-                text='You cannot set this as you username, it already exists' 
+                text='You cannot set this as your username, it already exists' 
                 closePopup={y => setAlreadyPopup(!alreadyPopup)}  
             />
             :
@@ -127,7 +139,7 @@ const Settings = (props) => {
             null
             }
             <p></p>
-            <button className="standard_button" onClick={event => window.location.href='/'}>Log Out</button>
+            <button className="standard_button" onClick={handleLogOut}>Log Out</button>
 
       </div>
     );

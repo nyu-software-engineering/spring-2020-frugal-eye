@@ -7,13 +7,19 @@ import './register.css'
 import axios from 'axios'
 const RecipeList = (props) => {
   const [data, setData] = useState([]);
+  const token = window.localStorage.getItem('token');
+
   useEffect(() => {
-    axios.get('http://localhost:3000/recipelist').then(function(response) {
+    axios.get('http://localhost:3000/recipelist', {
+        headers: { Authorization: token }}).then(function(response) {
         setData(response.data.data);
         console.log(response.data.data);
     });
   }, []);
 
+  if (token == null)
+        { window.location.href='/' }
+  
   return (
     //retrieve search params from props
     //.find({ingredients = props.ingredients}, ingredients)
