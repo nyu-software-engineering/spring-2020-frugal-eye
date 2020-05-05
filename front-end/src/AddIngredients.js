@@ -7,14 +7,18 @@ import axios from 'axios';
 const AddIngredients = (props) =>{
     const [ingredient, setIngredient] = useState("");
     const [ingredientsList, setIngredientsList] = useState([]);
+
+    const token = window.localStorage.getItem('token');
     
     useEffect(() => {
-        axios.get('http://localhost:3000/add-ingredients').then(function(response) {
+        axios.get('http://localhost:3000/add-ingredients', {
+        headers: { Authorization: token }}).then(function(response) {
                 setIngredientsList(ingredientsList.concat(response.data));
         });
       }, []);
     useEffect(() => {
-        axios.post('http://localhost:3000/add-ingredients', ingredientsList).then(function(response) {
+        axios.post('http://localhost:3000/add-ingredients', ingredientsList, {
+        headers: { Authorization: token }}).then(function(response) {
             console.log(response);
         }).catch(function(error) {
             console.log(error);
@@ -33,6 +37,10 @@ const AddIngredients = (props) =>{
         let item = event.target.id;
         setIngredientsList(ingredientsList.filter((e) => (e !== item)));
     }
+
+    if (token == null)
+        { window.location.href='/' }
+
     return (
         <div>
             <NavBar/>
