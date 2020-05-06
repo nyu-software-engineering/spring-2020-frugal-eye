@@ -15,19 +15,22 @@ const RecipePage = (props) => {
     let {key} = useParams();
 
     let id = 716429;
+    let id2 = 324694;
     let apikey = "7c8a8fa894364cee819710b8b1887a74";
     //let id = parseInt(useParams());
     let ingredientsurl = "https://api.spoonacular.com/recipes/" + id + "/information?apiKey=" + apikey;
-    let instructionsurl = "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=" + apikey;
+    let instructionsurl = "https://api.spoonacular.com/recipes/" + id2 + "/analyzedInstructions?apiKey=" + apikey;
     //let {recipeName} = data[id].name;
 
     useEffect(() => {
         axios.get(ingredientsurl).then(function(response) {
+            
             setData(response.data);
         }).catch(error => {
             console.log(error);
         }, []);
             axios.get(instructionsurl).then(function(response) {
+                console.log(response.data);
                 setInstr(response.data);
         }).catch(error => {
             console.log(error);
@@ -53,17 +56,17 @@ const RecipePage = (props) => {
     // }
 
     function ingredients(){
-        if(data != undefined){
+        if(data.length != 0){
             return(
                 <div>
-                    {data.ingredients.map(ingredient => (
-                        <li>{ingredient}</li>
+                    {data.extendedIngredients.map(ingredient => (
+                        <li key={ingredient.id}>{ingredient.name}</li>
                      ))}  
                 </div>
             );
         }
         else{
-            return();
+            return;
         }
     }
 
@@ -75,17 +78,22 @@ const RecipePage = (props) => {
     //}
 
     function instructions(){
-        if(data != undefined){
+        if(instr.length != 0){
+            console.log(instr)
             return(
-                <ul>
-                    {instr.map(instruction => (
-                        <li>{instruction}</li>
-                    ))}   
-                </ul>
+                <div>
+                    {instr.map((instruction, i) => {
+                        return(
+                        <tr key={i}>{instruction.steps.map(step => (
+                                <li key={step.number}>{step.step}</li>
+                            ))}
+                        </tr>
+                        )})}   
+                </div>
             );
         }
         else{
-            return ();
+            return ;
         }
     }
 
@@ -121,12 +129,12 @@ const RecipePage = (props) => {
             <br></br><br></br>
             <div className = "recipe2">
                 <img src = {require("" + dat[key].image)} width="200" alt = 'image'/>
-                <h3>{Recipe.recipe_name}</h3>
+                <h3>{data.title}</h3>
                 <button onClick={favorited}>Add to Favorites</button>
-                <p>Ingredients:</p>
-                {this.ingredients()}
-                <p>Instructions:</p>
-                {this.instructions()}
+                <h4>Ingredients:</h4>
+                {ingredients()}
+                <h4>Instructions:</h4>
+                {instructions()}
             </div>
         </div>
     );
