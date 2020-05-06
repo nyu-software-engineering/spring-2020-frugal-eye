@@ -21,6 +21,8 @@ const Login = (props) => {
     axios.post('http://localhost:3000/', payload).then(function (response) {
       console.log(response);
       if(response.status == 200){
+        const token = response.data['token'];
+        window.localStorage.setItem('token', token);
         window.location.href='/Home'
       }
       else if(response.status == 204){

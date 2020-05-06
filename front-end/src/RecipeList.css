@@ -38,7 +38,8 @@
 	margin-left: 20px;
 }
 
-.recipe {
+.greenrecipe {
+	background: #7CE099;
 	display:flex;
 	align-items: center;
 	justify-content: center;
@@ -46,11 +47,24 @@
 	margin: 0 auto;
 	margin-bottom: 30px;
 	text-align: center; 
-	width: 250px;
+	width: 300px;
 	border-radius: 25px;
 	padding: 20px;
-	background: #7CE099;
-	line-height:5px;
+	font-size: 18px;
+}
+
+.yellowrecipe {
+	background: #FDFD96;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	text-align: center; 
+	width: 300px;
+	border-radius: 25px;
+	padding: 20px;
 	font-size: 18px;
 }
 
