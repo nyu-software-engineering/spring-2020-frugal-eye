@@ -3,8 +3,8 @@ node_js:
 - "6"
 
 install:
-- cd back-end && npm install
-- cd .. && cd front-end && npm install
+- cd front-end && npm install
+- cd .. && cd back-end && npm install
 
 script:
-- cd back-end && npm test
+- npm test
