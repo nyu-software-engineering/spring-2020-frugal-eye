@@ -23,60 +23,67 @@ const RecipePage = (props) => {
 
     useEffect(() => {
         axios.get(ingredientsurl).then(function(response) {
-            console.log(response);
             setData(response.data);
         }).catch(error => {
             console.log(error);
-        });
+        }, []);
             axios.get(instructionsurl).then(function(response) {
                 setInstr(response.data);
-            }).catch(error => {
+        }).catch(error => {
             console.log(error);
-        });
-//        }, []);
+        }, []);
     }, []);
  
 
-    let Recipe = {
-        id: Number,
-        recipe_name: String,
-        ingredients: [Object],
-//        instructions: [String]
-    };
+    // let Recipe = {
+    //     id: Number,
+    //     recipe_name: String,
+    //     ingredients: [Object],
+    //     instructions: [String]
+    // };
 
-        Recipe.id = data.id;
-        Recipe.recipe_name = data.title;
-        Recipe.ingredients = data.extendedIngredients;
-    try{
-        alert(data.extendedIngredients)
-    }
-    catch{
+    //     Recipe.id = data.id;
+    //     Recipe.recipe_name = data.title;
+    //     Recipe.ingredients = data.extendedIngredients;
+    // try{
+    //     alert(data.extendedIngredients)
+    // }
+    // catch{
 
-    }
+    // }
 
     function ingredients(){
-        if(data != undefined){}
+        if(data != undefined){
             return(
-                <ul>
+                <div>
                     {data.ingredients.map(ingredient => (
                         <li>{ingredient}</li>
-                    ))}   
-                </ul>
-            )
+                     ))}  
+                </div>
+            );
+        }
         else{
-            return ();
+            return();
         }
     }
 
-    function ingredients(){
-        if(data != undefined){}
+    //function name(params){
+    //  if(clause){
+    //      return(
+    //       );    
+    //  }   else{} 
+    //}
+
+    function instructions(){
+        if(data != undefined){
             return(
                 <ul>
                     {instr.map(instruction => (
-                    <li>{instruction}</li>
+                        <li>{instruction}</li>
                     ))}   
                 </ul>
-            )
+            );
+        }
         else{
             return ();
         }
