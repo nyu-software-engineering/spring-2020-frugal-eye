@@ -24,7 +24,7 @@ const RecipePage = (props) => {
 
     useEffect(() => {
         axios.get(ingredientsurl).then(function(response) {
-            
+            console.log(response.data.image)
             setData(response.data);
         }).catch(error => {
             console.log(error);
@@ -115,7 +115,7 @@ const RecipePage = (props) => {
             <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
             <br></br><br></br>
             <div className = "recipe2">
-                <img src = {require("" + dat[key].image)} width="200" alt = 'image'/>
+                <img src = {data.image} width="400px" alt = 'image'/>
                 <h3>{data.title}</h3>
                 <button onClick={favorited}>Add to Favorites</button>
                 <h4>Ingredients:</h4>
