@@ -38,29 +38,16 @@ const RecipePage = (props) => {
     }, []);
  
 
-    // let Recipe = {
-    //     id: Number,
-    //     recipe_name: String,
-    //     ingredients: [Object],
-    //     instructions: [String]
-    // };
-
-    //     Recipe.id = data.id;
-    //     Recipe.recipe_name = data.title;
-    //     Recipe.ingredients = data.extendedIngredients;
-    // try{
-    //     alert(data.extendedIngredients)
-    // }
-    // catch{
-
-    // }
+    function Capitalize(str){
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 
     function ingredients(){
         if(data.length != 0){
             return(
                 <div>
                     {data.extendedIngredients.map(ingredient => (
-                        <li key={ingredient.id}>{ingredient.name}</li>
+                        <li key={ingredient.id}>{Capitalize(ingredient.name)}</li>
                      ))}  
                 </div>
             );
@@ -84,10 +71,10 @@ const RecipePage = (props) => {
                 <div>
                     {instr.map((instruction, i) => {
                         return(
-                        <tr key={i}>{instruction.steps.map(step => (
+                        <div key={i}>{instruction.steps.map(step => (
                                 <li key={step.number}>{step.step}</li>
                             ))}
-                        </tr>
+                        </div>
                         )})}   
                 </div>
             );
