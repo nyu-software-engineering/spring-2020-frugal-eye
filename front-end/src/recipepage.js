@@ -71,11 +71,15 @@ const RecipePage = (props) => {
                 <div>
                     {instr.map((instruction, i) => {
                         return(
-                        <div key={i}>{instruction.steps.map(step => (
-                                <li key={step.number}>{step.step}</li>
-                            ))}
-                        </div>
-                        )})}   
+                        <div>
+                                <h4>{instruction.name}</h4>    
+                                <ol key={i}>{instruction.steps.map(step => ( 
+                                    <li key={step.number}>{step.step}</li>
+                                ))}
+                                </ol>
+                        </div> 
+                        )
+                    })}   
                 </div>
             );
         }
