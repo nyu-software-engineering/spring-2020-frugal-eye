@@ -87,7 +87,6 @@ async function changeUserInfo(username, new_username, password, new_password, re
 app.post('/', (req, res) => {
      passport.authenticate('local', {session: false}, (err, user, info) => {
         if (err) {
-            console.log(user)
             if (err == "Incorrect password") {
               res.sendStatus(204);
             }
@@ -160,7 +159,7 @@ app.get('/recipelist', (req, res) =>{
                 user   : user
             });
         }
-        User.findOne({}, function(err, user){
+        User.findOne({username: user.username}, function(err, user){
           if(err) throw err;
           let input = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=097d255cf08b43c38036c60fb487d129&ingredients="
           for(let i=0; i< user.ingredients.length; i++){
@@ -169,7 +168,7 @@ app.get('/recipelist', (req, res) =>{
                input += ",+";
             }
           }
-          input+= "&number=2";
+          input+= "&number=5";
           axios.get(input).then(function(response) {
                 res.send({data:response.data});
           });
@@ -197,7 +196,7 @@ app.get('/favoritelist', (req, res) =>{
                 user   : user
             });
         }
-        User.findOne({}, function(err, user){
+        User.findOne({username: user.username}, function(err, user){
           if(err) throw err;
             //send favorites into res.body
           
@@ -219,9 +218,9 @@ app.get('/add-ingredients', (req, res) => {
                 user   : user
             });
         }
-        User.findOne({}, function(err, user) {
+        User.findOne({username: user.username}, function(err, currentuser) {
             if (err) throw err;
-            res.send(user.ingredients);
+            res.send(currentuser.ingredients);
         });
     })
     (req, res);
@@ -235,8 +234,7 @@ app.post('/add-ingredients', (req, res) => {
                 user   : user
             });
         }
-         //TODO: need to add ingredients onto current user after user authorization is implemented, for now added it to first object in the User collection
-        User.findOneAndUpdate({}, {ingredients: req.body}, {useFindAndModify: false}, function(err, ingredients) {
+        User.findOneAndUpdate({username: user.username}, {ingredients: req.body}, {useFindAndModify: false}, function(err, updateduser) {
           if (err) throw err;
         });
         res.sendStatus(200)
