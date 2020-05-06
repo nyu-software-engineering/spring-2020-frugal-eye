@@ -37,6 +37,7 @@ async function changeUserInfo(username, new_username, password, new_password, re
         if (!thisUser){
             return res.sendStatus(205);
         }
+        console.log(thisUser)
         const check_user = await User.findOne({username: new_username})
 
         if (check_user && check_user.id != thisUser.id){
