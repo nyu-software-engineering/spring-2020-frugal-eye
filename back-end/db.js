@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
@@ -36,5 +37,5 @@ User.methods.isValidPassword = async function(newPassword) {
 
 mongoose.model("User", User);
 
-mongoose.connect('mongodb://localhost/agile', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://"+process.env.DB_USERNAME+":"+process.env.DB_PASSWORD+"@cluster0-kvl5v.gcp.mongodb.net/test?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true", { useNewUrlParser: true, useUnifiedTopology: true});
 
