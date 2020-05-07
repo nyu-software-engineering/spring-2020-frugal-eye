@@ -196,16 +196,15 @@ app.get('/favoritelist', (req, res) =>{
                 user   : user
             });
         }
-        User.findOne({username: user.username}, function(err, user){
+        User.findOne({username: user.username}, function(err, currentuser){
           if(err) throw err;
             //send favorites into res.body
-          
+          axios.get("https://api.spoonacular.com/recipes/findByIngredients?apiKey=097d255cf08b43c38036c60fb487d129&ingredients=apple,+banana&number=3").then(function(response) {
+            console.log(response.data);
+            res.send({data:response.data});
+          });
 
         });
-
-        //axios.get our api in the future w/ find function
-        const body = require('../front-end/src/Sampledata')
-        res.json(body)
     })
     (req, res);
 });

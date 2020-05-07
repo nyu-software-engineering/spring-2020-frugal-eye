@@ -12,8 +12,7 @@ const RecipeList = (props) => {
   useEffect(() => {
     axios.get('http://localhost:3000/recipelist', {
         headers: { Authorization: token }}).then(function(response) {
-        setData(response.data.data);
-        console.log(response.data.data);
+          setData(response.data.data);
     });
   }, []);
 
