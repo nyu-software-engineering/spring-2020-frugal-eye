@@ -6,6 +6,7 @@ const MongoMemoryServer = require('mongodb-memory-server').MongoMemoryServer;
 
 let mongoServer;
 const opts = { useMongoClient: true };
+let token;
 
 before(async () => {
   mongoServer = new MongoMemoryServer();
@@ -17,7 +18,15 @@ before(async () => {
     .post("/register")
     .send({new_username: "testUser", new_password: "testPassword"})
     .end((err, res) => {
-      const token = res.body.token;
+      token = res.body.token;
+    });
+
+  chai
+    .request(app)
+    .post("/register")
+    .send({new_username: "testUser2", new_password: "testPassword"})
+    .end((err, res) => {
+      token = res.body.token;
     });
 
 });
@@ -102,18 +111,7 @@ describe("Register", () => {
   });
 });
 
-/*describe("Settings", () => {
-  let token;
-
-  beforeEach(() => {
-    chai
-      .request(app)
-      .post("/")
-      .send({username: "testUser", password: "testPassword"})
-      .then((err, res) => {
-        token = res.body.token;
-      });
-  });
+describe("Settings", () => {
 
   it("Sends a 200 code when user information is changed", done => {
     chai
@@ -145,11 +143,37 @@ describe("Register", () => {
     chai
       .request(app)
       .post("/settings")
-      .send({username: "testUser", password: "testPassword",
+      .send({username: "newUserName", password: "newPassword",
         new_username: "newUserName2", new_password: "newpass"})
       .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.have.status(204);
+        done();
+      });
+  });
+
+  it("Sends a 206 code when password is incorrect", done => {
+    chai
+      .request(app)
+      .post("/settings")
+      .send({username: "newUserName", password: "badPassword",
+        new_username: "newUserName2", new_password: "newpass"})
+      .set("Authorization", token)
+      .end((err, res) => {
+        expect(res).to.have.status(206);
+        done();
+      });
+  });
+
+  it("Sends a 207 code when new username already exists", done => {
+    chai
+      .request(app)
+      .post("/settings")
+      .send({username: "newUserName", password: "newPassword",
+        new_username: "testUser2", new_password: "newpass"})
+      .set("Authorization", token)
+      .end((err, res) => {
+        expect(res).to.have.status(207);
         done();
       });
   });
@@ -161,18 +185,20 @@ describe("Register", () => {
       .request(app)
       .post("/add-ingredients")
       .send({ingredientsList: ["test1", "test2"]})
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.have.status(200);
         done();
       });
   });
-});
+});*/
 
 describe("Recipe List Page", () => { 
   it("Sends a 200 code when recipes are requested from API", done => {
     chai
       .request(app)
       .get("/recipelist")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.have.status(200);
         done();
@@ -183,6 +209,7 @@ describe("Recipe List Page", () => {
     chai
       .request(app)
       .get("/recipelist")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.be.an('object').that.is.not.empty;
         done();
@@ -195,6 +222,7 @@ describe("Favorite List Page", () => {
     chai
       .request(app)
       .get("/favoritelist")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.have.status(200);
         done();
@@ -205,6 +233,7 @@ describe("Favorite List Page", () => {
     chai
       .request(app)
       .get("/recipelist")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.be.an('object').that.is.not.empty;
         done();
@@ -217,6 +246,7 @@ describe("Recipe Page", () => {
     chai
       .request(app)
       .get("/recipe/1")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.be.an('object').that.is.not.empty;
         done();
@@ -226,6 +256,7 @@ describe("Recipe Page", () => {
     chai
       .request(app)
       .get("/recipe/2")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.be.an('object').that.is.not.empty;
         done();
@@ -235,9 +266,10 @@ describe("Recipe Page", () => {
     chai
       .request(app)
       .get("/recipe/3")
+      .set("Authorization", token)
       .end((err, res) => {
         expect(res).to.be.an('object').that.is.not.empty;
         done();
       });
   });
-});*/
+});
