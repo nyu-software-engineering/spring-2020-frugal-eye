@@ -33,3 +33,7 @@
 li {
 	padding: 7px;
 }
+
+ol {
+	list-style-position: inside;
+}

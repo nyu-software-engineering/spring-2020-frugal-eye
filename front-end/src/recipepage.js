@@ -10,7 +10,6 @@ const RecipePage = (props) => {
     const [data, setData] = useState([]);
     const [instr, setInstr] = useState([]);
     const [matchPopup, setMatchPopup] = useState(true);
-    const data = require("./Sampledata2");
 
     const token = window.localStorage.getItem('token');
 
@@ -75,7 +74,7 @@ const RecipePage = (props) => {
                         return(
                         <div>
                             <h4>{instruction.name}</h4>    
-                            ol key={i}>{instruction.steps.map(step => ( 
+                            <ol key={i}>{instruction.steps.map(step => ( 
                                 <li key={step.number}>{step.step}</li>
                             ))}
                             </ol>
@@ -91,24 +90,6 @@ const RecipePage = (props) => {
     }
 
    function favorited(){
-
-        axios.post('http://localhost:3000/recipe', {
-        headers: { Authorization: token }}).then(function (response) {
-        console.log(response);
-        if(response.status == 200){
-            alert("Added to Favorites");
-        }
-        }).catch(function (error) {
-            console.log(error);
-        });
-
-        if(data[key].favorite == false){
-            data[key].favorite = true;
-        }
-        else{
-            data[key].favorite = false;
-        }
-        //alert("favorited");
         return;
     }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page
