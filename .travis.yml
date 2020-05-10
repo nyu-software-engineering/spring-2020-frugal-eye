@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- "12.15"
+
+install:
+- cd front-end && npm install
+- cd .. && cd back-end && npm install
+
+script:
+- npm test
