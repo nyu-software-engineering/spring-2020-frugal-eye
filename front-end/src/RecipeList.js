@@ -31,7 +31,7 @@ const RecipeList = (props) => {
       <p id = "help-text">If the box is green, you're all set! If it's yellow, you're missing some ingredients.</p>
       <br></br>
       {data.map((key, index) => (
-          <p className = {data[index].missedIngredientCount > 0 ? 'yellowrecipe' : 'greenrecipe'} onClick={event => window.location.href="/recipe/"+key}>
+          <p className = {data[index].missedIngredientCount > 0 ? 'yellowrecipe' : 'greenrecipe'} onClick={event => window.location.href="/recipe/"+data[index].id}>
           {data[index].title}
           <img src = {data[index].image} alt = 'image'/>
           </p>
