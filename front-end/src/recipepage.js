@@ -38,6 +38,22 @@ const RecipePage = (props) => {
         }, []);
     }, []);
  
+    let Recipe = {
+        id: data.id,
+        title: data.title,
+        image: data.image
+    };
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        axios.post('http://localhost:3000/recipe', Recipe, {
+        headers: { Authorization: token }}).then(function (response){
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+          });
+        
+    }
 
     function Capitalize(str){
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -89,18 +105,6 @@ const RecipePage = (props) => {
         }
     }
 
-    let Recipe = {
-        id: data.id,
-        title: data.title,
-        image: data.image
-    };
-
-   function favorited(){
-        axios.post('http://localhost:3000/recipe', Recipe, {
-            headers: { Authorization: token }}).then(function (response){
-                console.log(response);
-            });
-    }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page
     //name = props.recipeName
 
@@ -118,7 +122,10 @@ const RecipePage = (props) => {
             <div className = "recipe2">
                 <img src = {data.image} width="400px" alt = 'image'/>
                 <h3>{data.title}</h3>
-                <button onClick={favorited()}>Add to Favorites</button>
+                <form onSubmit={handleSubmit}>
+                    <input type="hidden" name="Recipe" value={Recipe}/>
+                    <input type="submit" value="Add to Favorites"/>
+                </form>
                 <h4>Ingredients:</h4>
                 {ingredients()}
                 <h4>Instructions:</h4>

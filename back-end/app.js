@@ -261,7 +261,7 @@ app.post('/add-ingredients', (req, res) => {
     (req, res);
 });
 
-app.get('/recipe', (req, res) => {
+app.post('/recipe', (req, res) => {
      passport.authenticate('jwt', {session: false}, (err, user, info) => {
         if (err || !user) {
             return res.status(400).json({
@@ -271,26 +271,11 @@ app.get('/recipe', (req, res) => {
         }
         User.findOneAndUpdate({username: user.username}, {$push: {favorites: req.body}},{useFindAndModify: false}, function(err, updateduser) {
           if (err) throw err;
+          console.log(req.body);
         });
         res.sendStatus(200)
     })
     (req, res);
-});
-
-//temporary tests for the hard coded sampledata json files
-app.get('/recipe/1', (req, res) => {
-	const body = require('../front-end/src/Sampledata2')
-    res.json(body)
-});
-
-app.get('/recipe/2', (req, res) => {
-	const body = require('../front-end/src/Sampledata2')
-    res.json(body)
-});
-
-app.get('/recipe/3', (req, res) => {
-	const body = require('../front-end/src/Sampledata2')
-    res.json(body)
 });
 
 module.exports = app;
