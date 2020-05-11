@@ -249,8 +249,10 @@ app.get('/recipe', (req, res) => {
                 user   : user
             });
         }
-        const body = require('../front-end/src/Sampledata2')
-        res.json(body)
+        User.findOneAndUpdate({username: user.username}, {$push: {favorites: req.body}},{useFindAndModify: false}, function(err, updateduser) {
+          if (err) throw err;
+        });
+        res.sendStatus(200)
     })
     (req, res);
 });

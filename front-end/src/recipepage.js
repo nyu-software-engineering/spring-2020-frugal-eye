@@ -89,15 +89,24 @@ const RecipePage = (props) => {
         }
     }
 
+    let Recipe = {
+        id: data.id,
+        title: data.title,
+        image: data.image
+    };
+
    function favorited(){
-        return;
+        axios.post('http://localhost:3000/recipe', Recipe, {
+            headers: { Authorization: token }}).then(function (response){
+                console.log(response);
+            });
     }
     //onclick the name of the recipe from the recipelist will store the name in props and load this page
     //name = props.recipeName
 
     if (token == null)
         { window.location.href='/' }
-    
+        
     return(
         <div>
             <div>
@@ -109,7 +118,7 @@ const RecipePage = (props) => {
             <div className = "recipe2">
                 <img src = {data.image} width="400px" alt = 'image'/>
                 <h3>{data.title}</h3>
-                <button onClick={favorited}>Add to Favorites</button>
+                <button onClick={favorited()}>Add to Favorites</button>
                 <h4>Ingredients:</h4>
                 {ingredients()}
                 <h4>Instructions:</h4>
