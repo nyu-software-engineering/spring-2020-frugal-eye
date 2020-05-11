@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/nyu-software-engineering/spring-2020-frugal-eye.svg?branch=master)](https://travis-ci.com/nyu-software-engineering/spring-2020-frugal-eye)
+
 # Sprouts
 
 ## Story behind Sprouts - copied from proposal
