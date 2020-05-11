@@ -56,6 +56,13 @@ const Settings = (props) => {
         { window.location.href='/' }
     }
 
+    function handleClear(event){
+        setShowPopupDel(!showPopupDel);
+        axios.get('http://localhost:3000/clearfav', {
+        headers: { Authorization: token }
+    });
+    }
+
     if (token == null)
         { window.location.href='/' }
 
@@ -129,7 +136,7 @@ const Settings = (props) => {
             :
             null
             }
-            <button className="standard_button" onClick={h => setShowPopupDel(!showPopupDel)}>Clear Favorites</button>
+            <button className="standard_button" onClick={handleClear}>Clear Favorites</button>
             {showPopupDel ?
             <Popup  
                 text='Favorite recipes have been cleared' 

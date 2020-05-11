@@ -14,6 +14,8 @@ const JWT = require('jsonwebtoken');
 const passport = require('passport')
 const passportConf = require('./passport');
 
+const { check, validationResult } = require('express-validator');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -151,6 +153,23 @@ app.post('/settings', async (req, res) => {
     (req, res);
 });
 
+app.get('/clearfav', (req, res) => {
+    passport.authenticate('jwt', {session: false}, (err, user, info) => {
+        if(err || !user){
+            console.log(user)
+            return res.status(400).json({
+                message: info ? info.message : 'Auth failed',
+                user   : user
+            });
+        }
+        console.log("CLEAR FAV REACHED");
+        User.findOneAndUpdate({username: user.username}, {favorites: []}, {useFindAndModify: false}, function(err, currentUser){
+          if(err) throw err;
+        });
+    })
+    (req, res);
+});
+
 app.get('/recipelist', (req, res) =>{
     passport.authenticate('jwt', {session: false}, (err, user, info) => {
         if (err || !user) {
@@ -199,10 +218,11 @@ app.get('/favoritelist', (req, res) =>{
         User.findOne({username: user.username}, function(err, currentuser){
           if(err) throw err;
             //send favorites into res.body
-          axios.get("https://api.spoonacular.com/recipes/findByIngredients?apiKey=097d255cf08b43c38036c60fb487d129&ingredients=apple,+banana&number=3").then(function(response) {
-            console.log(response.data);
-            res.send({data:response.data});
-          });
+            res.send({data: currentuser.favorites})
+          //axios.get("https://api.spoonacular.com/recipes/findByIngredients?apiKey=097d255cf08b43c38036c60fb487d129&ingredients=apple,+banana&number=3").then(function(response) {
+            //console.log(response.data);
+            //res.send({data:response.data});
+          //});
 
         });
     })
