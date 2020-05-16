@@ -11,13 +11,13 @@ const AddIngredients = (props) =>{
     const token = window.localStorage.getItem('token');
     
     useEffect(() => {
-        axios.get('http://localhost:3000/add-ingredients', {
+        axios.get('http://localhost:8080/add-ingredients', {
         headers: { Authorization: token }}).then(function(response) {
                 setIngredientsList(ingredientsList.concat(response.data));
         });
       }, []);
     useEffect(() => {
-        axios.post('http://localhost:3000/add-ingredients', ingredientsList, {
+        axios.post('http://localhost:8080/add-ingredients', ingredientsList, {
         headers: { Authorization: token }}).then(function(response) {
             console.log(response);
         }).catch(function(error) {

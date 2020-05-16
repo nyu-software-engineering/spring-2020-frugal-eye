@@ -10,7 +10,7 @@ const FavoriteList = (props) => {
   const token = window.localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/favoritelist', {
+    axios.get('http://localhost:8080/favoritelist', {
         headers: { Authorization: token }}).then(function(response) {
           console.log(response.data.data);
           setData(response.data.data);

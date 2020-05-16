@@ -46,7 +46,7 @@ const RecipePage = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost:3000/recipe', Recipe, {
+        axios.post('http://localhost:8080/recipe', Recipe, {
         headers: { Authorization: token }}).then(function (response){
             console.log(response);
         }).catch(function (error) {

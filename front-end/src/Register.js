@@ -17,7 +17,7 @@ const Register = (props) => {
       "new_username": new_username,
       "new_password": new_password
     }
-    axios.post('http://localhost:3000/register', payload).then(function (response) {
+    axios.post('http://localhost:8080/register', payload).then(function (response) {
       console.log(response);
       if(response.status == 200){
         {props.closeWindow()}

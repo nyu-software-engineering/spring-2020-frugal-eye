@@ -18,7 +18,7 @@ const Login = (props) => {
       "username": username,
       "password": password
     }
-    axios.post('http://localhost:3000/', payload).then(function (response) {
+    axios.post('http://localhost:8080/', payload).then(function (response) {
       console.log(response);
       if(response.status == 200){
         const token = response.data['token'];

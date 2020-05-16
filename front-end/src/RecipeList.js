@@ -10,7 +10,7 @@ const RecipeList = (props) => {
   const token = window.localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/recipelist', {
+    axios.get('http://localhost:8080/recipelist', {
         headers: { Authorization: token }}).then(function(response) {
           setData(response.data.data);
     });

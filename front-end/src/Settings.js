@@ -26,7 +26,7 @@ const Settings = (props) => {
             "password": password,
             "new_password": new_password
         }
-        axios.post('http://localhost:3000/settings', payload, {
+        axios.post('http://localhost:8080/settings', payload, {
         headers: { Authorization: token }}).then(function (response) {
         console.log(response);
         if(response.status == 200){
@@ -58,7 +58,7 @@ const Settings = (props) => {
 
     function handleClear(event){
         setShowPopupDel(!showPopupDel);
-        axios.get('http://localhost:3000/clearfav', {
+        axios.get('http://localhost:8080/clearfav', {
         headers: { Authorization: token }
     });
     }
