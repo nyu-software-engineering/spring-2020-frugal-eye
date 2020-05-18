@@ -17,7 +17,7 @@ const RecipePage = (props) => {
 
     // let id = 716429;
     // let id2 = 324694;
-    let apikey = "7c8a8fa894364cee819710b8b1887a74";
+    let apikey = "3e3092cf2a5d4d5483dbdf38e81f646f";
     //let id = parseInt(useParams());
     let ingredientsurl = "https://api.spoonacular.com/recipes/" + key + "/information?apiKey=" + apikey;
     let instructionsurl = "https://api.spoonacular.com/recipes/" + key + "/analyzedInstructions?apiKey=" + apikey;
