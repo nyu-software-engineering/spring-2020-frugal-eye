@@ -1,9 +1,11 @@
 body {
 	/* background-color: #BAEDBF; */
 	background: url("sprouts-background.jpg");
-	background-repeat: no-repeat;
+	/* background-repeat: no-repeat; */
 	background-attachment: fixed;
-	background-size: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-color: #949494;
 }
 
 .standard_button {
