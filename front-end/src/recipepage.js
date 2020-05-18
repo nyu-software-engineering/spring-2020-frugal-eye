@@ -63,9 +63,10 @@ const RecipePage = (props) => {
         if(data.length != 0){
             return(
                 <div>
-                    {data.extendedIngredients.map(ingredient => (
-                        <li key={ingredient.id}>{Capitalize(ingredient.name)}</li>
+                    <ul className="recipeul">{data.extendedIngredients.map(ingredient => (
+                        <li className="recipeli" key={ingredient.id}>{Capitalize(ingredient.name)}</li>
                      ))}  
+                     </ul>
                 </div>
             );
         }
@@ -73,13 +74,6 @@ const RecipePage = (props) => {
             return;
         }
     }
-
-    //function name(params){
-    //  if(clause){
-    //      return(
-    //       );    
-    //  }   else{} 
-    //}
 
     function instructions(){
         if(instr.length != 0){
@@ -117,14 +111,13 @@ const RecipePage = (props) => {
                 <NavBar/>
             </div>
             <br></br>
-            <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to recipes</button>
-            <br></br><br></br>
+            <button className="recipes-button" onClick={event => window.location.href='/recipelist'}>Back to Recipes</button>
             <div className = "recipe2">
-                <img src = {data.image} width="400px" alt = 'image'/>
                 <h3>{data.title}</h3>
+                <img className="img" src = {data.image} alt = 'image'/>
                 <form onSubmit={handleSubmit}>
                     <input type="hidden" name="Recipe" value={Recipe}/>
-                    <input type="submit" value="Add to Favorites"/>
+                    <input className="recipes-button" type="submit" value="Add to Favorites"/>
                 </form>
                 <h4>Ingredients:</h4>
                 {ingredients()}

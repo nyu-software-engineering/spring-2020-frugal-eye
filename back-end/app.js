@@ -187,7 +187,7 @@ app.get('/recipelist', (req, res) =>{
                input += ",+";
             }
           }
-          input+= "&number=5";
+          input+= "&number=10";
           axios.get(input).then(function(response) {
                 res.send({data:response.data});
           });
